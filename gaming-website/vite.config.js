@@ -10,8 +10,6 @@ export default defineConfig({
 			input: {
 				main: resolve(__dirname, 'src/index.html'),
 			},
-			// Add other Rollup options if necessary
 		},
 	},
-	// ... other configurations
 });
