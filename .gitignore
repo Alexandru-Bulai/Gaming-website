@@ -1,0 +1,7 @@
+node_modules
+.vscode
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.swp
