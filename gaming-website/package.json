@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"docker-build": "docker-compose up --build && docker run -p 3000:3000 -d gaming-website",
+		"docker-build": "docker-compose up && docker run -p 3000:3000 -d gaming-website",
 		"build": "vite build",
 		"preview": "vite preview"
 	},
