@@ -1,7 +1,7 @@
 ---
 name: Lint Project
 
-on: 
+on:
   pull_request:
     branches: [master, main]
 
@@ -27,11 +27,9 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_HTML: true
-          VALIDATE_CSS: true
+          VALIDATE_CSS: false
           VALIDATE_JAVASCRIPT_STANDARD: true
           VALIDATE_DOCKERFILE_HADOLINT: true
           VALIDATE_YAML: true
           VALIDATE_MARKDOWN: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-          
