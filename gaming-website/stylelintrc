@@ -1,8 +1,0 @@
-{
-  "extends": [
-    "stylelint-config-tailwindcss"
-  ],
-  "rules": {
-    "selector-class-pattern": null
-  }
-}
