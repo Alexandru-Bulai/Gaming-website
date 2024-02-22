@@ -21,6 +21,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Run stylelint
+        run: npx stylelint "src/**/*.css"
+
       - name: Super-linter
         uses: super-linter/super-linter@v6.2.0
         env:
