@@ -8,6 +8,24 @@
   }
 
   .game-footer-container {
-    @apply relative flex h-80 w-60 items-center bg-slate-300;
+    @apply relative flex h-80 w-60 items-center bg-slate-300 hover:bg-[#304F69] hover:bg-opacity-90;
+  }
+
+  .game-container-cart {
+    @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50 transition-all hover:scale-105 hover:ring-opacity-100;
+  }
+
+  .game-footer-container .game-container-cart,
+  .game-footer-container .game-container-price {
+    @apply hidden;
+  }
+
+  .game-footer-container:hover .game-container-cart,
+  .game-footer-container:hover .game-container-price {
+    @apply flex justify-center;
+  }
+
+  .game-container-price {
+    @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50;
   }
 }
