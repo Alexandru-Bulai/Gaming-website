@@ -9,11 +9,16 @@
   <li><strong>Modern Technologies:</strong> Built with the latest technologies, including Tailwind CSS, JavaScript, Vite, and Docker, our platform is fast, efficient.</li>
 </ul>
 
-<h2><strong>Getting Started</strong></h2>
-<p>To get the project up and running on your local machine, follow these simple steps:</p>
+<h2><strong>Getting Started with Docker</strong></h2>
+<p>With Docker now integrated into the project, setting up the environment is straightforward. To build and run a Docker container, simply execute the command below:</p>
 
-<h3><strong>Run the Project Server</strong></h3>
-<p>To start the development server, run the following command:</p>
+<pre><code>npm run docker-build</code></pre>
+
+<h2><strong>Getting Started without Docker</strong></h2>
+<p>To get the project up and running on your local machine without Docker, follow these simple steps:</p>
+
+<h3><strong>Run the Project Server without Docker</strong></h3>
+<p>To start the development server without Docker, run the following command:</p>
 
 <pre><code>npm run dev</code></pre>
 
