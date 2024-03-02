@@ -3,15 +3,18 @@
 @tailwind utilities;
 
 @layer components {
-  .game-title {
-    
-      .nav-button {
+  .nav-index {
+    @apply mt-2 flex flex-col items-center bg-transparent md:flex-row md:justify-between;
+  }
+
+  .nav-button {
     @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 ring ring-sky-400 ring-opacity-50 transition-all;
   }
 
   .nav-button:hover {
     @apply scale-105 ring-opacity-100;
-    
+  }
+  .game-title {
     @apply absolute bottom-0 flex h-14 w-full items-center justify-center bg-[#131B26] font-extrabold text-white;
   }
 
@@ -23,6 +26,10 @@
     @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50 transition-all hover:scale-105 hover:ring-opacity-100;
   }
 
+  .game-container-price {
+    @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50;
+  }
+
   .game-footer-container .game-container-cart,
   .game-footer-container .game-container-price {
     @apply hidden;
@@ -32,9 +39,4 @@
   .game-footer-container:hover .game-container-price {
     @apply flex justify-center;
   }
-
-  .game-container-price {
-    @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50;
-  }
-}
 }
