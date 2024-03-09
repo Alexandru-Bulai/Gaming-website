@@ -3,12 +3,17 @@
 @tailwind utilities;
 
 @layer components {
+  .body {
+    @apply bg-[#101720]  font-sans text-white;
+  }
   .hero {
-    @apply m-auto h-screen max-w-7xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-cover bg-center bg-no-repeat;
+    @apply relative m-auto h-screen max-w-screen-2xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-cover bg-no-repeat;
   }
 
+  /* NAVIGATION BAR SECTION  */
+
   .nav-index {
-    @apply mt-2 flex  w-full flex-col items-center bg-[#101720] bg-opacity-70 md:flex-row md:justify-between md:gap-5;
+    @apply mt-2 hidden w-full flex-col items-center bg-[#101720] bg-opacity-70 md:flex md:flex-row md:justify-between md:gap-5;
   }
 
   .nav-button {
@@ -27,16 +32,44 @@
     @apply rounded-l-xl rounded-r-none py-2 pl-4 pr-3 text-black focus:outline-none focus:ring-2 focus:ring-blue-500;
   }
 
-  .game-title {
-    @apply absolute bottom-0 flex h-14 w-full items-center justify-center bg-[#131B26] font-extrabold text-white;
+  /* HIGHLIGHT SECTION */
+
+  .highlight-container {
+    @apply mx-8 mt-20 flex h-80 w-auto bg-[#101720]  bg-opacity-70 md:mt-10;
   }
 
+  .highlight-big {
+    @apply h-full w-full border-2 border-white md:w-3/4;
+  }
+
+  .highlight-side-container {
+    @apply flex flex-col;
+  }
+
+  .highlight-title {
+    @apply hidden text-center sm:block;
+  }
+
+  .highlight-medium {
+    @apply hidden h-full w-64 border-2 border-white;
+  }
+
+  .highlight-small {
+    @apply w-full border-2 border-white;
+  }
+
+  /* FOOTER SECTION */
+
   .game-footer-container {
-    @apply relative flex h-80 w-60 items-center bg-slate-300 hover:bg-[#304F69] hover:bg-opacity-90;
+    @apply relative flex h-60 w-40 items-center bg-slate-300 hover:bg-[#304F69] hover:bg-opacity-90;
   }
 
   .game-container-cart {
     @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50 transition-all hover:scale-105 hover:ring-opacity-100;
+  }
+
+  .game-title {
+    @apply absolute bottom-0 flex h-14 w-full items-center justify-center bg-[#131B26] font-extrabold text-white;
   }
 
   .game-container-price {
