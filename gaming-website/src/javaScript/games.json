@@ -1,0 +1,184 @@
+{
+  "payload": {
+    "gamesCover": [
+      {
+        "name": "Red Dead Redemption 2",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/red-dead-redemption-2.png"
+      },
+      {
+        "name": "Cyberpunk 2077",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/cyberpunk-2077.png"
+      },
+      {
+        "name": "The Witcher 3: Wild Hunt",
+        "price": "40",
+        "url": "../../public/assets/home-page/game-cover/the-witcher-3.png"
+      },
+      {
+        "name": "Hades",
+        "price": "25",
+        "url": "../../public/assets/home-page/game-cover/hades.png"
+      },
+      {
+        "name": "DOOM Eternal",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/doom.png"
+      },
+      {
+        "name": "Sekiro: Shadows Die Twice",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/sekiro.png"
+      },
+      {
+        "name": "Monster Hunter: World",
+        "price": "30",
+        "url": "../../public/assets/home-page/game-cover/monster-hunter.png"
+      },
+      {
+        "name": "Final Fantasy XIV: Shadowbringers",
+        "price": "40",
+        "url": "../../public/assets/home-page/game-cover/final-fantasy-XIV.png"
+      },
+      {
+        "name": "Control",
+        "price": "40",
+        "url": "../../public/assets/home-page/game-cover/control.png"
+      },
+      {
+        "name": "Death Stranding",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/death-stranding.png"
+      },
+      {
+        "name": "Star Wars Jedi: Fallen Order",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/star-wars-jedi.png"
+      },
+      {
+        "name": "Minecraft",
+        "price": "30",
+        "url": "../../public/assets/home-page/game-cover/minecraft.png"
+      },
+      {
+        "name": "Assassin's Creed Valhalla",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/assasins-creed-valhalla.png"
+      },
+      {
+        "name": "Borderlands 3",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/borderlands-3.png"
+      },
+      {
+        "name": "Ghost of Tsushima",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/ghosts-of-tsushima.png"
+      },
+      {
+        "name": "Nioh 2",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/Nioh-2.png"
+      },
+      {
+        "name": "Marvel's Spider-Man: Miles Morales",
+        "price": "50",
+        "url": "../../public/assets/home-page/game-cover/spider-man.png"
+      },
+      {
+        "name": "Resident Evil Village",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/resident-evil-village.png"
+      },
+      {
+        "name": "Demon's Souls",
+        "price": "70",
+        "url": "../../public/assets/home-page/game-cover/deamons-souls.png"
+      },
+      {
+        "name": "The Last of Us Part II",
+        "price": "60",
+        "url": "../../public/assets/home-page/game-cover/the-last-of-us.png"
+      }
+    ],
+
+    "gamesHighlight": [
+      {
+        "name": "Assassin's Creed Valhalla",
+        "url": "../../public/assets/home-page/highlights/assassins-creed-highlight.png"
+      },
+      {
+        "name": "Sekiro: Shadows Die Twice",
+        "url": "../../public/assets/home-page/highlights/sekiro-highlight.png"
+      },
+      {
+        "name": "The Witcher 3: Wild Hunt",
+        "url": "../../public/assets/home-page/highlights/witcher-highlight.png"
+      }
+    ],
+
+    "gamesGameplay": [
+      {
+        "name": "Assassin's Creed Valhalla",
+        "position": "top-left",
+        "url": "../../public/assets/home-page/gameplay-screenshots/assassins-creed-gameplay-1.png"
+      },
+      {
+        "name": "Assassin's Creed Valhalla",
+        "position": "top-right",
+        "url": "../../public/assets/home-page/gameplay-screenshots/assassins-creed-gameplay-2.png"
+      },
+      {
+        "name": "Assassin's Creed Valhalla",
+        "position": "bottom-left",
+        "url": "../../public/assets/home-page/gameplay-screenshots/assassins-creed-gameplay-3.png"
+      },
+      {
+        "name": "Assassin's Creed Valhalla",
+        "position": "bottom-right",
+        "url": "../../public/assets/home-page/gameplay-screenshots/assassins-creed-gameplay-4.png"
+      },
+      {
+        "name": "Sekiro: Shadows Die Twice",
+        "position": "top-left",
+        "url": "../../public/assets/home-page/gameplay-screenshots/sekiro-gameplay-1.png"
+      },
+      {
+        "name": "Sekiro: Shadows Die Twice",
+        "position": "top-right",
+        "url": "../../public/assets/home-page/gameplay-screenshots/sekiro-gameplay-2.png"
+      },
+      {
+        "name": "Sekiro: Shadows Die Twice",
+        "position": "bottom-left",
+        "url": "../../public/assets/home-page/gameplay-screenshots/sekiro-gameplay-3.png"
+      },
+      {
+        "name": "Sekiro: Shadows Die Twice",
+        "position": "bottom-right",
+        "url": "../../public/assets/home-page/gameplay-screenshots/sekiro-gameplay-4.png"
+      },
+      {
+        "name": "The Witcher 3: Wild Hunt",
+        "position": "top-left",
+        "url": "../../public/assets/home-page/gameplay-screenshots/witcher-gameplay-1.png"
+      },
+      {
+        "name": "The Witcher 3: Wild Hunt",
+        "position": "top-right",
+        "url": "../../public/assets/home-page/gameplay-screenshots/witcher-gameplay-2.png"
+      },
+      {
+        "name": "The Witcher 3: Wild Hunt",
+        "position": "bottom-left",
+        "url": "../../public/assets/home-page/gameplay-screenshots/witcher-gameplay-3.png"
+      },
+      {
+        "name": "The Witcher 3: Wild Hunt",
+        "position": "bottom-right",
+        "url": "../../public/assets/home-page/gameplay-screenshots/witcher-gameplay-4.png"
+      }
+    ]
+  }
+}
