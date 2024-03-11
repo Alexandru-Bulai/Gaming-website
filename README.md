@@ -27,4 +27,10 @@
 
 <pre><code>npm run build</code></pre>
 
+<h1>Test your code with Vitest</h1>
+<h2>Run the test</h2>
+<p>To run the test, navigate to your terminal and execute the following command:</p>
+<pre><code>npm run test</code></pre>
+<p>Once the build is complete, verify if all tests have passed.</p>
+
 <p>Follow the instructions that come up to complete the deployment process.</p>
