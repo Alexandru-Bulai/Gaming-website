@@ -10,6 +10,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: CD into root
+        run: cd gaming-website
       - name: Install modules
         run: npm install
       - name: Run tests
