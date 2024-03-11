@@ -6,30 +6,36 @@
         "price": "40",
         "img-cover": "the-witcher-3.png",
         "img-highlight": "witcher-highlight.png",
-        "img-top-left": "witcher-gameplay-1.png",
-        "img-top-right": "witcher-gameplay-2.png",
-        "img-bottom-left": "witcher-gameplay-3.png",
-        "img-bottom-right": "witcher-gameplay-4.png"
+        "images-gameplay": [
+          "witcher-gameplay-1.png",
+          "witcher-gameplay-2.png",
+          "witcher-gameplay-3.png",
+          "witcher-gameplay-4.png"
+        ]
       },
       {
         "name": "Sekiro: Shadows Die Twice",
         "price": "60",
         "img-cover": "sekiro.png",
         "img-highlight": "sekiro-highlight.png",
-        "img-top-left": "sekiro-gameplay-1.png",
-        "img-top-right": "sekiro-gameplay-2.png",
-        "img-bottom-left": "sekiro-gameplay-3.png",
-        "img-bottom-right": "sekiro-gameplay-4.png"
+        "images-gameplay": [
+          "sekiro-gameplay-1.png",
+          "sekiro-gameplay-2.png",
+          "sekiro-gameplay-3.png",
+          "sekiro-gameplay-4.png"
+        ]
       },
       {
         "name": "Assassin's Creed Valhalla",
         "price": "60",
         "img-cover": "assasins-creed-valhalla.png",
         "img-highlight": "assassins-creed-highlight.png",
-        "img-top-left": "assassins-creed-gameplay-1.png",
-        "img-top-right": "assassins-creed-gameplay-2.png",
-        "img-bottom-left": "assassins-creed-gameplay-3.png",
-        "img-bottom-right": "assassins-creed-gameplay-4.png"
+        "images-gameplay": [
+          "assassins-creed-gameplay-1.png",
+          "assassins-creed-gameplay-2.png",
+          "assassins-creed-gameplay-3.png",
+          "assassins-creed-gameplay-4.png"
+        ]
       },
       {
         "name": "Red Dead Redemption 2",
