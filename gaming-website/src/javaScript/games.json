@@ -2,182 +2,119 @@
   "payload": {
     "gamesCover": [
       {
+        "name": "The Witcher 3: Wild Hunt",
+        "price": "40",
+        "img-cover": "the-witcher-3.png",
+        "img-highlight": "witcher-highlight.png",
+        "img-top-left": "witcher-gameplay-1.png",
+        "img-top-right": "witcher-gameplay-2.png",
+        "img-bottom-left": "witcher-gameplay-3.png",
+        "img-bottom-right": "witcher-gameplay-4.png"
+      },
+      {
+        "name": "Sekiro: Shadows Die Twice",
+        "price": "60",
+        "img-cover": "sekiro.png",
+        "img-highlight": "sekiro-highlight.png",
+        "img-top-left": "sekiro-gameplay-1.png",
+        "img-top-right": "sekiro-gameplay-2.png",
+        "img-bottom-left": "sekiro-gameplay-3.png",
+        "img-bottom-right": "sekiro-gameplay-4.png"
+      },
+      {
+        "name": "Assassin's Creed Valhalla",
+        "price": "60",
+        "img-cover": "assasins-creed-valhalla.png",
+        "img-highlight": "assassins-creed-highlight.png",
+        "img-top-left": "assassins-creed-gameplay-1.png",
+        "img-top-right": "assassins-creed-gameplay-2.png",
+        "img-bottom-left": "assassins-creed-gameplay-3.png",
+        "img-bottom-right": "assassins-creed-gameplay-4.png"
+      },
+      {
         "name": "Red Dead Redemption 2",
         "price": "60",
-        "img": "red-dead-redemption-2.png"
+        "img-cover": "red-dead-redemption-2.png"
       },
       {
         "name": "Cyberpunk 2077",
         "price": "60",
-        "img": "cyberpunk-2077.png"
-      },
-      {
-        "name": "The Witcher 3: Wild Hunt",
-        "price": "40",
-        "img": "the-witcher-3.png"
+        "img-cover": "cyberpunk-2077.png"
       },
       {
         "name": "Hades",
         "price": "25",
-        "img": "hades.png"
+        "img-cover": "hades.png"
       },
       {
         "name": "DOOM Eternal",
         "price": "60",
-        "img": "doom.png"
-      },
-      {
-        "name": "Sekiro: Shadows Die Twice",
-        "price": "60",
-        "img": "sekiro.png"
+        "img-cover": "doom.png"
       },
       {
         "name": "Monster Hunter: World",
         "price": "30",
-        "img": "monster-hunter.png"
+        "img-cover": "monster-hunter.png"
       },
       {
         "name": "Final Fantasy XIV: Shadowbringers",
         "price": "40",
-        "img": "final-fantasy-XIV.png"
+        "img-cover": "final-fantasy-XIV.png"
       },
       {
         "name": "Control",
         "price": "40",
-        "img": "control.png"
+        "img-cover": "control.png"
       },
       {
         "name": "Death Stranding",
         "price": "60",
-        "img": "death-stranding.png"
+        "img-cover": "death-stranding.png"
       },
       {
         "name": "Star Wars Jedi: Fallen Order",
         "price": "60",
-        "img": "star-wars-jedi.png"
+        "img-cover": "star-wars-jedi.png"
       },
       {
         "name": "Minecraft",
         "price": "30",
-        "img": "minecraft.png"
-      },
-      {
-        "name": "Assassin's Creed Valhalla",
-        "price": "60",
-        "img": "assasins-creed-valhalla.png"
+        "img-cover": "minecraft.png"
       },
       {
         "name": "Borderlands 3",
         "price": "60",
-        "img": "borderlands-3.png"
+        "img-cover": "borderlands-3.png"
       },
       {
         "name": "Ghost of Tsushima",
         "price": "60",
-        "img": "ghosts-of-tsushima.png"
+        "img-cover": "ghosts-of-tsushima.png"
       },
       {
         "name": "Nioh 2",
         "price": "60",
-        "img": "Nioh-2.png"
+        "img-cover": "Nioh-2.png"
       },
       {
         "name": "Marvel's Spider-Man: Miles Morales",
         "price": "50",
-        "img": "spider-man.png"
+        "img-cover": "spider-man.png"
       },
       {
         "name": "Resident Evil Village",
         "price": "60",
-        "img": "resident-evil-village.png"
+        "img-cover": "resident-evil-village.png"
       },
       {
         "name": "Demon's Souls",
         "price": "70",
-        "img": "deamons-souls.png"
+        "img-cover": "deamons-souls.png"
       },
       {
         "name": "The Last of Us Part II",
         "price": "60",
-        "img": "the-last-of-us.png"
-      }
-    ],
-
-    "gamesHighlight": [
-      {
-        "name": "Assassin's Creed Valhalla",
-        "img": "assassins-creed-highlight.png"
-      },
-      {
-        "name": "Sekiro: Shadows Die Twice",
-        "img": "sekiro-highlight.png"
-      },
-      {
-        "name": "The Witcher 3: Wild Hunt",
-        "img": "witcher-highlight.png"
-      }
-    ],
-
-    "gamesGameplay": [
-      {
-        "name": "Assassin's Creed Valhalla",
-        "position": "top-left",
-        "img": "assassins-creed-gameplay-1.png"
-      },
-      {
-        "name": "Assassin's Creed Valhalla",
-        "position": "top-right",
-        "img": "assassins-creed-gameplay-2.png"
-      },
-      {
-        "name": "Assassin's Creed Valhalla",
-        "position": "bottom-left",
-        "img": "assassins-creed-gameplay-3.png"
-      },
-      {
-        "name": "Assassin's Creed Valhalla",
-        "position": "bottom-right",
-        "img": "assassins-creed-gameplay-4.png"
-      },
-      {
-        "name": "Sekiro: Shadows Die Twice",
-        "position": "top-left",
-        "img": "sekiro-gameplay-1.png"
-      },
-      {
-        "name": "Sekiro: Shadows Die Twice",
-        "position": "top-right",
-        "img": "sekiro-gameplay-2.png"
-      },
-      {
-        "name": "Sekiro: Shadows Die Twice",
-        "position": "bottom-left",
-        "img": "sekiro-gameplay-3.png"
-      },
-      {
-        "name": "Sekiro: Shadows Die Twice",
-        "position": "bottom-right",
-        "img": "sekiro-gameplay-4.png"
-      },
-      {
-        "name": "The Witcher 3: Wild Hunt",
-        "position": "top-left",
-        "img": "witcher-gameplay-1.png"
-      },
-      {
-        "name": "The Witcher 3: Wild Hunt",
-        "position": "top-right",
-        "img": "witcher-gameplay-2.png"
-      },
-      {
-        "name": "The Witcher 3: Wild Hunt",
-        "position": "bottom-left",
-        "img": "witcher-gameplay-3.png"
-      },
-      {
-        "name": "The Witcher 3: Wild Hunt",
-        "position": "bottom-right",
-        "img": "witcher-gameplay-4.png"
+        "img-cover": "the-last-of-us.png"
       }
     ]
   }
