@@ -15,6 +15,9 @@ function moveMenu (add, sub) {
   if (pageCount < 0) {
     pageCount = 0
   }
+  if (add && sub) {
+    throw new Error('Please select only one option at a time')
+  }
 }
 
 describe('Highlight menu count', () => {
@@ -35,5 +38,11 @@ describe('Highlight menu count', () => {
   test('Ensure nothing else can affect count', () => {
     moveMenu(false, false)
     expect(pageCount).toBe(0)
+  })
+
+  test('Throw error when both add and sub are true', () => {
+    expect(() => moveMenu(true, true)).toThrow(
+      'Please select only one option at a time'
+    )
   })
 })
