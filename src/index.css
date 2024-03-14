@@ -58,6 +58,16 @@
     @apply w-full border-2 border-white;
   }
 
+  /* Highlight counter section */
+
+  .highlight-counter {
+    @apply flex justify-center gap-8;
+  }
+
+  .counter-button {
+    @apply mt-24 h-20 w-20 border-2 border-white bg-[#101720];
+  }
+
   /* FOOTER SECTION */
 
   .game-footer-container {
