@@ -70,6 +70,10 @@
 
   /* FOOTER SECTION */
 
+  .dark-scrollbar {
+    @apply overflow-x-scroll  scrollbar scrollbar-track-[#00c8ff2e] scrollbar-thumb-slate-700;
+  }
+
   .game-footer-container {
     @apply relative flex h-60 w-40 items-center bg-slate-300 hover:bg-[#304F69] hover:bg-opacity-90;
   }
@@ -81,7 +85,6 @@
   .game-title {
     @apply absolute bottom-0 flex h-14 w-full items-center justify-center bg-[#131B26] font-extrabold text-white;
   }
-
   .game-container-price {
     @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50;
   }
