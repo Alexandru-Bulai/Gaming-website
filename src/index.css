@@ -7,7 +7,13 @@
     @apply bg-[#101720]  font-sans text-white;
   }
   .hero {
-    @apply relative m-auto h-screen max-w-screen-2xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-cover bg-no-repeat;
+    @apply m-auto block  max-w-screen-2xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-cover bg-no-repeat;
+  }
+
+  /* REUSABLE STYLES */
+
+  .img-contain {
+    @apply h-full w-full object-contain;
   }
 
   /* NAVIGATION BAR SECTION  */
@@ -35,7 +41,7 @@
   /* HIGHLIGHT SECTION */
 
   .highlight-container {
-    @apply mx-8 mt-20 flex h-80 w-auto bg-[#101720]  bg-opacity-70 md:mt-10;
+    @apply mx-8 mt-20 flex h-80 max-w-4xl justify-between bg-[#101720] bg-opacity-70 sm:gap-6  md:mt-10 lg:mx-auto;
   }
 
   .highlight-big {
@@ -65,7 +71,7 @@
   }
 
   .counter-button {
-    @apply mt-24 h-20 w-20 border-2 border-white bg-[#101720];
+    @apply my-12 flex h-10 w-20 items-center justify-center rounded-3xl bg-[#101720] ring-4 ring-[#17ADA7];
   }
 
   /* FOOTER SECTION */
