@@ -7,7 +7,7 @@
     @apply bg-[#101720]  font-sans text-white;
   }
   .hero {
-    @apply m-auto block  max-w-screen-2xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-cover bg-no-repeat;
+    @apply m-auto block  max-w-screen-2xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-fixed;
   }
 
   /* REUSABLE STYLES */
@@ -18,6 +18,10 @@
 
   .dark-scrollbar {
     @apply scrollbar scrollbar-track-[#00c8ff2e] scrollbar-thumb-slate-700;
+  }
+
+  .dark-button {
+    @apply rounded-3xl bg-[#101720] ring-4 ring-[#17ADA7];
   }
 
   /* NAVIGATION BAR SECTION  */
@@ -45,7 +49,7 @@
   /* HIGHLIGHT SECTION */
 
   .highlight-display {
-    @apply mt-20 flex h-80 flex-1 justify-center gap-6 bg-[#101720] bg-opacity-70;
+    @apply mb-8 mt-20 flex  h-80 flex-1 justify-center gap-6 bg-[#101720] bg-opacity-70 sm:mb-0;
   }
 
   .highlight-container:nth-child(1) {
@@ -56,14 +60,51 @@
     @apply hidden h-full w-full max-w-sm border-2 border-white;
   }
 
+  .highlight-display .highlight-backward {
+    @apply m-auto ml-4 h-10 sm:hidden;
+  }
+
+  .highlight-display .highlight-foreward {
+    @apply m-auto mr-4 h-10  sm:hidden;
+  }
+
+  .highlight-screeshot {
+    @apply hidden h-3/5;
+  }
+
+  .highlight-title {
+    @apply hidden h-1/5 text-center;
+  }
+
+  .highlight-details {
+    @apply m-auto hidden max-w-64 justify-between;
+  }
+
+  .highlight-cart {
+    @apply mx-5  flex size-10 items-center justify-center rounded-full ring-2;
+  }
+
+  .highlight-price {
+    @apply mx-5  flex size-10 w-20 items-center justify-center rounded-full ring-2;
+  }
+
+  .highlight-container:hover .highlight-title {
+    @apply block;
+  }
+
+  .highlight-container:hover .highlight-screeshot,
+  .highlight-container:hover .highlight-details {
+    @apply flex;
+  }
+
   /* Highlight counter section */
 
   .highlight-counter {
     @apply flex justify-center gap-8;
   }
 
-  .counter-button {
-    @apply my-12 flex h-10 w-20 items-center justify-center rounded-3xl bg-[#101720] ring-4 ring-[#17ADA7];
+  .highlight-selection {
+    @apply my-5 h-4 w-12;
   }
 
   /* FOOTER SECTION */
