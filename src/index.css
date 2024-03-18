@@ -52,8 +52,12 @@
     @apply mb-8 mt-20 flex  h-80 flex-1 justify-center gap-6 bg-[#101720] bg-opacity-70 sm:mb-0;
   }
 
+  .highlight-container:nth-child(1) {
+    @apply block;
+  }
+
   .highlight-container {
-    @apply h-full w-full max-w-sm border-2 border-white;
+    @apply hidden h-full w-full max-w-sm border-2 border-white;
   }
 
   .highlight-display .highlight-backward {
