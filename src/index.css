@@ -52,7 +52,7 @@
     @apply mb-8 mt-20 flex  h-80 flex-1 justify-center gap-6 bg-[#101720] bg-opacity-70 sm:mb-0;
   }
 
-  .highlight-container:nth-child(1) {
+  .highlight-container:nth-child(2) {
     @apply block;
   }
 
