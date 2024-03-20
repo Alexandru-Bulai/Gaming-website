@@ -1,8 +1,3 @@
-/**
- * @param {boolean} add - If true, increments the pageCount by 1.
- * @param {boolean} sub - If true, decrements the pageCount by 1.
- */
-
 export let pageCount = 0
 
 export function moveMenu (add, sub) {
@@ -19,3 +14,47 @@ export function moveMenu (add, sub) {
     throw new Error('Please select only one option at a time')
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const nextBtn = document.querySelector('.highlight-foreward')
+  const prevBtn = document.querySelector('.highlight-backward')
+  const totalDivs = document.querySelectorAll('.highlight-container').length
+
+  function updateVisibility () {
+    if (pageCount < 0) {
+      pageCount = totalDivs - 1
+    } else if (pageCount >= totalDivs) {
+      pageCount = 0
+    }
+
+    const highlightContainers = document.querySelectorAll(
+      '.highlight-container'
+    )
+    highlightContainers.forEach((div, index) => {
+      div.style.display = index === pageCount ? 'block' : 'none'
+    })
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      moveMenu(true, false)
+      updateVisibility()
+    })
+  } else {
+    console.error('Next button not found.')
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      moveMenu(false, true)
+      if (pageCount < 0) {
+        pageCount = totalDivs - 1
+      }
+      updateVisibility()
+    })
+  } else {
+    console.error('Previous button not found.')
+  }
+
+  updateVisibility()
+})
