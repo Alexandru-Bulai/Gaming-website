@@ -1,6 +1,5 @@
 {
   "plugins": ["prettier-plugin-tailwindcss"],
   "semi": false,
-  "singleQuote": true,
-  "space-before-function-paren": true
+  "singleQuote": true
 }
