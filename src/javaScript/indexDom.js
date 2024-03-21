@@ -1,8 +1,3 @@
-/**
- * @param {boolean} add - If true, increments the pageCount by 1.
- * @param {boolean} sub - If true, decrements the pageCount by 1.
- */
-
 export let pageCount = 0
 
 export function moveMenu (add, sub) {
@@ -19,3 +14,36 @@ export function moveMenu (add, sub) {
     throw new Error('Please select only one option at a time')
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const nextBtn = document.querySelector('.highlight-foreward')
+  const prevBtn = document.querySelector('.highlight-backward')
+  const highlightContainers = document.querySelectorAll('.highlight-container')
+  const totalDivs = highlightContainers.length
+
+  function updatePage () {
+    if (pageCount >= totalDivs || pageCount < 0) {
+      pageCount = 0
+    }
+
+    updateVisibility()
+  }
+
+  function updateVisibility () {
+    highlightContainers.forEach((div, index) => {
+      div.style.display = index === pageCount ? 'block' : 'none'
+    })
+  }
+
+  nextBtn.addEventListener('click', () => {
+    moveMenu(true, false)
+    updatePage()
+  })
+
+  prevBtn.addEventListener('click', () => {
+    moveMenu(false, true)
+    updatePage()
+  })
+
+  updatePage()
+})
