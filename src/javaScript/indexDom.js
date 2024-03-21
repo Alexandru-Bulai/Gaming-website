@@ -47,9 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
       moveMenu(false, true)
-      if (pageCount < 0) {
-        pageCount = totalDivs - 1
-      }
       updateVisibility()
     })
   } else {
