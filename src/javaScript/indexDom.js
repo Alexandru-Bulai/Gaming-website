@@ -18,40 +18,32 @@ export function moveMenu (add, sub) {
 document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.querySelector('.highlight-foreward')
   const prevBtn = document.querySelector('.highlight-backward')
-  const totalDivs = document.querySelectorAll('.highlight-container').length
+  const highlightContainers = document.querySelectorAll('.highlight-container')
+  const totalDivs = highlightContainers.length
 
-  function updateVisibility () {
-    if (pageCount >= totalDivs) {
+  function updatePage () {
+    if (pageCount >= totalDivs || pageCount < 0) {
       pageCount = 0
-    } else {
-      console.error('Index limit reached')
     }
 
-    const highlightContainers = document.querySelectorAll(
-      '.highlight-container'
-    )
+    updateVisibility()
+  }
+
+  function updateVisibility () {
     highlightContainers.forEach((div, index) => {
       div.style.display = index === pageCount ? 'block' : 'none'
     })
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      moveMenu(true, false)
-      updateVisibility()
-    })
-  } else {
-    console.error('Next button not found.')
-  }
+  nextBtn.addEventListener('click', () => {
+    moveMenu(true, false)
+    updatePage()
+  })
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      moveMenu(false, true)
-      updateVisibility()
-    })
-  } else {
-    console.error('Previous button not found.')
-  }
+  prevBtn.addEventListener('click', () => {
+    moveMenu(false, true)
+    updatePage()
+  })
 
-  updateVisibility()
+  updatePage()
 })
