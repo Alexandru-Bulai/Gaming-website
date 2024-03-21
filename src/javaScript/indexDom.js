@@ -47,3 +47,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updatePage()
 })
+
+fetch('src/javaScript/games.json')
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    return response.json()
+  })
+  .then((data) => {
+    const allGames = data.payload.gamesDetail
+    allGames.forEach((game) => {
+      const gamesContainer = document.querySelector('.grid-index')
+      gamesContainer.insertAdjacentHTML(
+        'beforeend',
+        `<div class="game-footer-container">
+              <img
+              class = "hover:hidden"
+                src="public/assets/home-page/game-cover/${game.imgCover}"
+                alt="${game.name} cover"
+              />
+              <div class="mt-8 flex w-full flex-col justify-center text-center">
+                <button class="game-container-cart">Add to cart</button>
+                <div class="game-container-price">Price: $${game.price}</div>
+              </div>
+              <div class="game-title">${game.name}</div>
+            </div>`
+      )
+    })
+  })
