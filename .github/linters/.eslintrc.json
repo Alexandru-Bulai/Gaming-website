@@ -4,6 +4,6 @@
     "prettier"
   ],
   "rules": {
-    "semi": ["error", "never"]
+    // custon rules
   }
 }
