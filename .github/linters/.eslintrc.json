@@ -1,0 +1,9 @@
+{
+  "extends": [
+    // other configs...
+    "prettier"
+  ],
+  "rules": {
+    "semi": ["error", "never"]
+  }
+}
