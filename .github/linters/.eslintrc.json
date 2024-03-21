@@ -1,9 +1,10 @@
 {
   "extends": [
-    // other configs...
+    // other configs
     "prettier"
   ],
   "rules": {
-    // custon rules
+    // other rules
+    "semi": "off"
   }
 }
