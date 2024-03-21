@@ -1,6 +1,6 @@
 export let pageCount = 0
 
-export function moveMenu (add, sub) {
+export function moveMenu(add, sub) {
   if (add) {
     pageCount += 1
   }
@@ -11,17 +11,17 @@ export function moveMenu (add, sub) {
     pageCount = 0
   }
   if (add && sub) {
-    throw new Error('Please select only one option at a time')
+    throw new Error("Please select only one option at a time")
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const nextBtn = document.querySelector('.highlight-foreward')
-  const prevBtn = document.querySelector('.highlight-backward')
-  const highlightContainers = document.querySelectorAll('.highlight-container')
+document.addEventListener("DOMContentLoaded", () => {
+  const nextBtn = document.querySelector(".highlight-foreward")
+  const prevBtn = document.querySelector(".highlight-backward")
+  const highlightContainers = document.querySelectorAll(".highlight-container")
   const totalDivs = highlightContainers.length
 
-  function updatePage () {
+  function updatePage() {
     if (pageCount >= totalDivs || pageCount < 0) {
       pageCount = 0
     }
@@ -29,42 +29,43 @@ document.addEventListener('DOMContentLoaded', () => {
     updateVisibility()
   }
 
-  function updateVisibility () {
+  function updateVisibility() {
     highlightContainers.forEach((div, index) => {
-      div.style.display = index === pageCount ? 'block' : 'none'
+      div.style.display = index === pageCount ? "block" : "none"
     })
   }
 
-  nextBtn.addEventListener('click', () => {
+  nextBtn.addEventListener("click", () => {
     moveMenu(true, false)
     updatePage()
   })
 
-  prevBtn.addEventListener('click', () => {
+  prevBtn.addEventListener("click", () => {
     moveMenu(false, true)
     updatePage()
   })
 
   updatePage()
-})
 
-fetch('src/javaScript/games.json')
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok')
-    }
-    return response.json()
-  })
-  .then((data) => {
-    const allGames = data.payload.gamesDetail
-    allGames.forEach((game) => {
-      const gamesContainer = document.querySelector('.grid-index')
-      gamesContainer.insertAdjacentHTML(
-        'beforeend',
-        `<div class="game-footer-container">
+  const gamesContainer = document.querySelector(".grid-index")
+  const gamesPath = "src/javaScript/games.json"
+
+  fetch(gamesPath)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok")
+      }
+      return response.json()
+    })
+    .then((data) => {
+      const allGames = data.payload.gamesDetail
+      allGames.forEach((game) => {
+        gamesContainer.insertAdjacentHTML(
+          "beforeend",
+          `<div class="game-footer-container">
               <img
               class = "hover:hidden"
-                src="public/assets/home-page/game-cover/${game.imgCover}"
+                src="/assets/home-page/game-cover/${game.cover}"
                 alt="${game.name} cover"
               />
               <div class="mt-8 flex w-full flex-col justify-center text-center">
@@ -72,7 +73,8 @@ fetch('src/javaScript/games.json')
                 <div class="game-container-price">Price: $${game.price}</div>
               </div>
               <div class="game-title">${game.name}</div>
-            </div>`
-      )
+            </div>`,
+        )
+      })
     })
-  })
+})

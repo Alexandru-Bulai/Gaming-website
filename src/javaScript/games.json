@@ -4,9 +4,9 @@
       {
         "name": "The Witcher 3: Wild Hunt",
         "price": "40",
-        "imgCover": "the-witcher-3.png",
-        "img-highlight": "witcher-highlight.png",
-        "images-gameplay": [
+        "cover": "the-witcher-3.png",
+        "highlight": "witcher-highlight.png",
+        "gameplay": [
           "witcher-gameplay-1.png",
           "witcher-gameplay-2.png",
           "witcher-gameplay-3.png",
@@ -16,9 +16,9 @@
       {
         "name": "Sekiro: Shadows Die Twice",
         "price": "60",
-        "imgCover": "sekiro.png",
-        "img-highlight": "sekiro-highlight.png",
-        "images-gameplay": [
+        "cover": "sekiro.png",
+        "highlight": "sekiro-highlight.png",
+        "gameplay": [
           "sekiro-gameplay-1.png",
           "sekiro-gameplay-2.png",
           "sekiro-gameplay-3.png",
@@ -28,9 +28,9 @@
       {
         "name": "Assassin's Creed Valhalla",
         "price": "60",
-        "imgCover": "assasins-creed-valhalla.png",
-        "img-highlight": "assassins-creed-highlight.png",
-        "images-gameplay": [
+        "cover": "assasins-creed-valhalla.png",
+        "highlight": "assassins-creed-highlight.png",
+        "gameplay": [
           "assassins-creed-gameplay-1.png",
           "assassins-creed-gameplay-2.png",
           "assassins-creed-gameplay-3.png",
@@ -40,87 +40,87 @@
       {
         "name": "Red Dead Redemption 2",
         "price": "60",
-        "imgCover": "red-dead-redemption-2.png"
+        "cover": "red-dead-redemption-2.png"
       },
       {
         "name": "Cyberpunk 2077",
         "price": "60",
-        "imgCover": "cyberpunk-2077.png"
+        "cover": "cyberpunk-2077.png"
       },
       {
         "name": "Hades",
         "price": "25",
-        "imgCover": "hades.png"
+        "cover": "hades.png"
       },
       {
         "name": "DOOM Eternal",
         "price": "60",
-        "imgCover": "doom.png"
+        "cover": "doom.png"
       },
       {
         "name": "Monster Hunter: World",
         "price": "30",
-        "imgCover": "monster-hunter.png"
+        "cover": "monster-hunter.png"
       },
       {
         "name": "Final Fantasy XIV: Shadowbringers",
         "price": "40",
-        "imgCover": "final-fantasy-XIV.png"
+        "cover": "final-fantasy-XIV.png"
       },
       {
         "name": "Control",
         "price": "40",
-        "imgCover": "control.png"
+        "cover": "control.png"
       },
       {
         "name": "Death Stranding",
         "price": "60",
-        "imgCover": "death-stranding.png"
+        "cover": "death-stranding.png"
       },
       {
         "name": "Star Wars Jedi: Fallen Order",
         "price": "60",
-        "imgCover": "star-wars-jedi.png"
+        "cover": "star-wars-jedi.png"
       },
       {
         "name": "Minecraft",
         "price": "30",
-        "imgCover": "minecraft.png"
+        "cover": "minecraft.png"
       },
       {
         "name": "Borderlands 3",
         "price": "60",
-        "imgCover": "borderlands-3.png"
+        "cover": "borderlands-3.png"
       },
       {
         "name": "Ghost of Tsushima",
         "price": "60",
-        "imgCover": "ghosts-of-tsushima.png"
+        "cover": "ghosts-of-tsushima.png"
       },
       {
         "name": "Nioh 2",
         "price": "60",
-        "imgCover": "Nioh-2.png"
+        "cover": "Nioh-2.png"
       },
       {
         "name": "Marvel's Spider-Man: Miles Morales",
         "price": "50",
-        "imgCover": "spider-man.png"
+        "cover": "spider-man.png"
       },
       {
         "name": "Resident Evil Village",
         "price": "60",
-        "imgCover": "resident-evil-village.png"
+        "cover": "resident-evil-village.png"
       },
       {
         "name": "Demon's Souls",
         "price": "70",
-        "imgCover": "deamons-souls.png"
+        "cover": "deamons-souls.png"
       },
       {
         "name": "The Last of Us Part II",
         "price": "60",
-        "imgCover": "the-last-of-us.png"
+        "cover": "the-last-of-us.png"
       }
     ]
   }
