@@ -11,14 +11,14 @@ export function moveMenu(add, sub) {
     pageCount = 0
   }
   if (add && sub) {
-    throw new Error("Please select only one option at a time")
+    throw new Error('Please select only one option at a time')
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const nextBtn = document.querySelector(".highlight-foreward")
-  const prevBtn = document.querySelector(".highlight-backward")
-  const highlightContainers = document.querySelectorAll(".highlight-container")
+document.addEventListener('DOMContentLoaded', () => {
+  const nextBtn = document.querySelector('.highlight-foreward')
+  const prevBtn = document.querySelector('.highlight-backward')
+  const highlightContainers = document.querySelectorAll('.highlight-container')
   const totalDivs = highlightContainers.length
 
   function updatePage() {
@@ -31,29 +31,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateVisibility() {
     highlightContainers.forEach((div, index) => {
-      div.style.display = index === pageCount ? "block" : "none"
+      div.style.display = index === pageCount ? 'block' : 'none'
     })
   }
 
-  nextBtn.addEventListener("click", () => {
+  nextBtn.addEventListener('click', () => {
     moveMenu(true, false)
     updatePage()
   })
 
-  prevBtn.addEventListener("click", () => {
+  prevBtn.addEventListener('click', () => {
     moveMenu(false, true)
     updatePage()
   })
 
   updatePage()
 
-  const gamesContainer = document.querySelector(".grid-index")
-  const gamesPath = "src/javaScript/games.json"
+  const gamesContainer = document.querySelector('.grid-index')
+  const gamesPath = 'src/javaScript/games.json'
 
   fetch(gamesPath)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Network response was not ok")
+        throw new Error('Network response was not ok')
       }
       return response.json()
     })
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const allGames = data.payload.gamesDetail
       allGames.forEach((game) => {
         gamesContainer.insertAdjacentHTML(
-          "beforeend",
+          'beforeend',
           `<div class="game-footer-container">
               <img
               class = "hover:hidden"
