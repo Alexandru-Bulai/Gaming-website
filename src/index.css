@@ -107,42 +107,9 @@
     @apply my-5 h-4 w-12;
   }
 
-  /* FOOTER SECTION */
+  /* Footer section */
 
-  .grid-index {
-    @apply grid  grid-flow-row justify-items-center gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
-  }
-
-  .game-footer-container {
-    @apply relative h-60 w-40 items-center bg-slate-300 hover:bg-[#304F69] hover:bg-opacity-90;
-  }
-
-  .game-footer-container img {
-    @apply h-auto w-full;
-  }
-
-  .game-footer-container:hover img {
-    @apply hidden;
-  }
-
-  .game-container-cart {
-    @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50 transition-all hover:scale-105 hover:ring-opacity-100;
-  }
-
-  .game-title {
-    @apply absolute bottom-0 flex h-14 w-full items-center justify-center bg-[#131B26] font-extrabold text-white;
-  }
-  .game-container-price {
+  .game-container-dark-style {
     @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50;
-  }
-
-  .game-footer-container .game-container-cart,
-  .game-footer-container .game-container-price {
-    @apply hidden;
-  }
-
-  .game-footer-container:hover .game-container-cart,
-  .game-footer-container:hover .game-container-price {
-    @apply flex justify-center;
   }
 }
