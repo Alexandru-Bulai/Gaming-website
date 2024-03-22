@@ -1,6 +1,6 @@
 export let pageCount = 0
 
-export function moveMenu(add, sub) {
+export function moveMenu (add, sub) {
   if (add) {
     pageCount += 1
   }
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const highlightContainers = document.querySelectorAll('.highlight-container')
   const totalDivs = highlightContainers.length
 
-  function updatePage() {
+  function updatePage () {
     if (pageCount >= totalDivs || pageCount < 0) {
       pageCount = 0
     }
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateVisibility()
   }
 
-  function updateVisibility() {
+  function updateVisibility () {
     highlightContainers.forEach((div, index) => {
       div.style.display = index === pageCount ? 'block' : 'none'
     })
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${game.name}
           </div>
         </div>
-        `,
+        `
         )
       })
     })
