@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-  .body {
-    @apply bg-[#101720]  font-sans text-white;
-  }
   .hero {
     @apply m-auto block  max-w-screen-2xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-fixed;
   }
@@ -26,10 +23,6 @@
 
   /* NAVIGATION BAR SECTION  */
 
-  .nav-index {
-    @apply mt-2 hidden w-full flex-col items-center bg-[#101720] bg-opacity-70 md:flex md:flex-row md:justify-between md:gap-5;
-  }
-
   .nav-button {
     @apply mx-2 my-3 w-10/12 rounded-lg bg-black bg-opacity-50 p-2 text-center ring ring-sky-400 ring-opacity-50 transition-all;
   }
@@ -38,70 +31,7 @@
     @apply scale-105 ring-opacity-100;
   }
 
-  .search-bar-button {
-    @apply flex items-center justify-center rounded-l-none rounded-r-xl bg-slate-500 px-4 py-2 text-white hover:bg-slate-400;
-  }
-
-  .search-bar-box {
-    @apply rounded-l-xl rounded-r-none py-2 pl-4 pr-3 text-black focus:outline-none focus:ring-2 focus:ring-blue-500;
-  }
-
-  /* HIGHLIGHT SECTION */
-
-  .highlight-display {
-    @apply mb-8 mt-20 flex  h-80 flex-1 justify-center gap-6 bg-[#101720] bg-opacity-70 sm:mb-0;
-  }
-
-  .highlight-container:nth-child(2) {
-    @apply block;
-  }
-
-  .highlight-container {
-    @apply hidden h-full w-full max-w-sm border-2 border-white;
-  }
-
-  .highlight-display .highlight-backward {
-    @apply m-auto ml-4 h-10 sm:hidden;
-  }
-
-  .highlight-display .highlight-foreward {
-    @apply m-auto mr-4 h-10  sm:hidden;
-  }
-
-  .highlight-screeshot {
-    @apply hidden h-3/5;
-  }
-
-  .highlight-title {
-    @apply hidden h-1/5 text-center;
-  }
-
-  .highlight-details {
-    @apply m-auto hidden max-w-64 justify-between;
-  }
-
-  .highlight-cart {
-    @apply mx-5  flex size-10 items-center justify-center rounded-full ring-2;
-  }
-
-  .highlight-price {
-    @apply mx-5  flex size-10 w-20 items-center justify-center rounded-full ring-2;
-  }
-
-  .highlight-container:hover .highlight-title {
-    @apply block;
-  }
-
-  .highlight-container:hover .highlight-screeshot,
-  .highlight-container:hover .highlight-details {
-    @apply flex;
-  }
-
   /* Highlight counter section */
-
-  .highlight-counter {
-    @apply flex justify-center gap-8;
-  }
 
   .highlight-selection {
     @apply my-5 h-4 w-12;
