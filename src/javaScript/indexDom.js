@@ -7,7 +7,7 @@ export function moveMenu (add, sub) {
   if (sub) {
     pageCount -= 1
   }
-  if (pageCount < 0) {
+  if (pageCount <= 0) {
     pageCount = 0
   }
   if (add && sub) {
@@ -16,23 +16,22 @@ export function moveMenu (add, sub) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const nextBtn = document.querySelector('.highlight-foreward')
-  const prevBtn = document.querySelector('.highlight-backward')
+  const nextBtn = document.querySelector('#highlight-foreward')
+  const prevBtn = document.querySelector('#highlight-backward')
   const highlightContainers = document.querySelectorAll('.highlight-container')
   const totalDivs = highlightContainers.length
-
-  function updatePage () {
-    if (pageCount >= totalDivs || pageCount < 0) {
-      pageCount = 0
-    }
-
-    updateVisibility()
-  }
 
   function updateVisibility () {
     highlightContainers.forEach((div, index) => {
       div.style.display = index === pageCount ? 'block' : 'none'
     })
+  }
+
+  function updatePage () {
+    if (pageCount > totalDivs - 1 || pageCount <= 0) {
+      pageCount = 0
+    }
+    updateVisibility()
   }
 
   nextBtn.addEventListener('click', () => {
@@ -44,8 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     moveMenu(false, true)
     updatePage()
   })
-
-  updatePage()
 
   const gamesContainer = document.querySelector('#grid-games')
   const gamesPath = 'src/javaScript/games.json'

@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark-scrollbar">
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="src/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GameWave</title>
   </head>
-  <body class="body">
+  <body class="bg-[#101720] font-sans text-white">
     <!-- Hero section -->
     <div class="hero">
       <!-- Menu start -->
@@ -20,7 +20,10 @@
             />
           </div>
 
-          <nav class="nav-index">
+          <nav
+            id="nav-index"
+            class="mt-2 hidden w-full flex-col items-center bg-[#101720] bg-opacity-70 md:flex md:flex-row md:justify-between md:gap-5"
+          >
             <a href="#" class="nav-button">HOME</a>
             <a href="#" class="nav-button">GAMES</a>
             <a href="#" class="nav-button">GIFTS</a>
@@ -28,8 +31,14 @@
           </nav>
 
           <div class="mt-4 flex justify-center">
-            <input type="text" placeholder="Search" class="search-bar-box" />
-            <button class="search-bar-button">
+            <input
+              type="text"
+              placeholder="Search"
+              class="rounded-l-xl rounded-r-none py-2 pl-4 pr-3 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button
+              class="flex items-center justify-center rounded-l-none rounded-r-xl bg-slate-500 px-4 py-2 text-white hover:bg-slate-400"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -51,8 +60,14 @@
       <!-- Menu end -->
 
       <!-- Highlight section  -->
-      <div class="highlight-display">
-        <div class="dark-button highlight-backward">
+      <div
+        id="highlight-display"
+        class="mb-8 mt-20 flex h-80 flex-1 justify-center gap-6 bg-[#101720] bg-opacity-70 sm:mb-0"
+      >
+        <div
+          id="highlight-backward"
+          class="dark-button m-auto ml-4 h-10 sm:hidden"
+        >
           <img
             class="img-contain"
             src="/assets/home-page/svgs/arrow-left.svg"
@@ -60,47 +75,94 @@
           />
         </div>
 
-        <div class="highlight-container">
-          hello
-          <div class="highlight-screeshot">screenshots</div>
-          <p class="highlight-title">Title</p>
-          <div class="highlight-details">
-            <div class="highlight-cart dark-button">🛒</div>
-            <div class="highlight-price dark-button">Price: $10</div>
+        <div
+          class="highlight-container group block h-full w-full max-w-sm border-2 border-white"
+        >
+          <div class="hidden h-3/5 justify-between group-hover:flex">
+            screenshots
+          </div>
+          <p class="hidden h-1/5 text-center group-hover:block">Title</p>
+          <div class="flex justify-between">
+            <div
+              class="dark-button mx-5 hidden size-10 items-center justify-center rounded-full ring-2 group-hover:flex"
+            >
+              🛒
+            </div>
+            <div
+              class="dark-button mx-5 hidden size-10 w-20 items-center justify-center rounded-full ring-2 group-hover:flex"
+            >
+              Price: $10
+            </div>
           </div>
         </div>
 
-        <div class="highlight-container sm:block">
-          hello 2
-          <div class="highlight-screeshot">screenshots</div>
-          <p class="highlight-title">Title</p>
-          <div class="highlight-details">
-            <div class="highlight-cart dark-button">🛒</div>
-            <div class="highlight-price dark-button">Price: $10</div>
+        <div
+          class="highlight-container group hidden h-full w-full max-w-sm border-2 border-white sm:block"
+        >
+          <div class="hidden h-3/5 justify-between group-hover:flex">
+            screenshots
+          </div>
+          <p class="hidden h-1/5 text-center group-hover:block">Title</p>
+          <div class="flex justify-between">
+            <div
+              class="dark-button mx-5 hidden size-10 items-center justify-center rounded-full ring-2 group-hover:flex"
+            >
+              🛒
+            </div>
+            <div
+              class="dark-button mx-5 hidden size-10 w-20 items-center justify-center rounded-full ring-2 group-hover:flex"
+            >
+              Price: $10
+            </div>
           </div>
         </div>
 
-        <div class="highlight-container md:block">
-          hello 3
-          <div class="highlight-screeshot">screenshots</div>
-          <p class="highlight-title">Title</p>
-          <div class="highlight-details">
-            <div class="highlight-cart dark-button">🛒</div>
-            <div class="highlight-price dark-button">Price: $10</div>
+        <div
+          class="highlight-container group hidden h-full w-full max-w-sm border-2 border-white md:block"
+        >
+          <div class="hidden h-3/5 justify-between group-hover:flex">
+            screenshots
+          </div>
+          <p class="hidden h-1/5 text-center group-hover:block">Title</p>
+          <div class="flex justify-between">
+            <div
+              class="dark-button mx-5 hidden size-10 items-center justify-center rounded-full ring-2 group-hover:flex"
+            >
+              🛒
+            </div>
+            <div
+              class="dark-button mx-5 hidden size-10 w-20 items-center justify-center rounded-full ring-2 group-hover:flex"
+            >
+              Price: $10
+            </div>
           </div>
         </div>
 
-        <div class="highlight-container lg:block">
-          hello 4
-          <div class="highlight-screeshot">screenshots</div>
-          <p class="highlight-title">Title</p>
-          <div class="highlight-details">
-            <div class="highlight-cart dark-button">🛒</div>
-            <div class="highlight-price dark-button">Price: $10</div>
+        <div
+          class="highlight-container group hidden h-full w-full max-w-sm border-2 border-white lg:block"
+        >
+          <div class="hidden h-3/5 justify-between group-hover:flex">
+            screenshots
+          </div>
+          <p class="hidden h-1/5 text-center group-hover:block">Title</p>
+          <div class="flex justify-between">
+            <div
+              class="dark-button mx-5 hidden size-10 items-center justify-center rounded-full ring-2 group-hover:flex"
+            >
+              🛒
+            </div>
+            <div
+              class="dark-button mx-5 hidden size-10 w-20 items-center justify-center rounded-full ring-2 group-hover:flex"
+            >
+              Price: $10
+            </div>
           </div>
         </div>
 
-        <div class="dark-button highlight-foreward">
+        <div
+          id="highlight-foreward"
+          class="dark-button m-auto mr-4 h-10 sm:hidden"
+        >
           <img
             class="img-contain"
             src="/assets/home-page/svgs/arrow-right.svg"
@@ -110,7 +172,7 @@
       </div>
 
       <!-- Highlight counter -->
-      <div class="highlight-counter">
+      <div class="flex justify-center gap-8">
         <div class="dark-button highlight-selection hidden sm:block"></div>
         <div class="dark-button highlight-selection hidden sm:block"></div>
         <div class="dark-button highlight-selection hidden md:block"></div>
