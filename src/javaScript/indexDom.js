@@ -1,6 +1,6 @@
 export let pageCount = 0
 
-export function moveMenu (add, sub) {
+export function moveMenu(add, sub) {
   if (add) {
     pageCount += 1
   }
@@ -18,23 +18,25 @@ export function moveMenu (add, sub) {
 document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.querySelector('#highlight-foreward')
   const prevBtn = document.querySelector('#highlight-backward')
-  const highlightContainer = document.querySelectorAll('.highlight-container')
   const mainHighlightContainer = document.querySelector('#mainHighlight')
-  const totalDivs = highlightContainer.length
-  console.log(highlightContainer)
 
-  function updateVisibility () {
-    highlightContainer.forEach((div, index) => {
-      div.style.display = index === pageCount ? 'block' : 'hidden'
+  function updateVisibility() {
+    const highlightVisibility = document.querySelectorAll(
+      '.highlight-container',
+    )
+
+    highlightVisibility.forEach((div, index) => {
+      div.style.display = index === pageCount ? 'block' : 'none'
     })
   }
 
-  function updatePage () {
+  function updatePage() {
+    const highlightContainer = document.querySelectorAll('.highlight-container')
+    const totalDivs = highlightContainer.length
     if (pageCount > totalDivs - 1 || pageCount <= 0) {
       pageCount = 0
     }
     updateVisibility()
-    console.log(updateVisibility())
   }
 
   nextBtn.addEventListener('click', () => {
@@ -65,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 })
 
-function populateGamesContainer (payload, gamesContainer) {
+function populateGamesContainer(payload, gamesContainer) {
   payload.forEach((game) => {
     gamesContainer.insertAdjacentHTML(
       'beforeend',
@@ -96,12 +98,12 @@ function populateGamesContainer (payload, gamesContainer) {
       ${game.name}
       </div>
     </div>
-    `
+    `,
     )
   })
 }
 
-function populateGamesHighlights (payload, mainHighlightContainer) {
+function populateGamesHighlights(payload, mainHighlightContainer) {
   // insert dom changes here
   payload.forEach((game) => {
     mainHighlightContainer.insertAdjacentHTML(
@@ -130,7 +132,7 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
         Price: $${game.price}
       </div>
     </div>
-`
+`,
     )
   })
 }
