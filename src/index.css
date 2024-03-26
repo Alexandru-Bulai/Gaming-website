@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer components {
   .hero {
     @apply m-auto block  max-w-screen-2xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-fixed;
@@ -35,6 +39,34 @@
 
   .highlight-selection {
     @apply my-5 h-4 w-12;
+  }
+
+  .highlight-container:first-child {
+    @apply block;
+  }
+
+  @screen sm {
+    .highlight-container:nth-child(2) {
+      display: block;
+    }
+  }
+
+  @screen md {
+    .highlight-container:nth-child(3) {
+      display: block;
+    }
+  }
+
+  @screen lg {
+    .highlight-container:nth-child(4) {
+      display: block;
+    }
+  }
+
+  @screen xl {
+    .highlight-container:not(:nth-child(-n + 4)) {
+      display: none;
+    }
   }
 
   /* Footer section */
