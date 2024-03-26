@@ -1,6 +1,6 @@
 export let pageCount = 0
 
-export function moveMenu(add, sub) {
+export function moveMenu (add, sub) {
   if (add) {
     pageCount += 1
   }
@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.querySelector('#highlight-backward')
   const mainHighlightContainer = document.querySelector('#mainHighlight')
 
-  function updateVisibility() {
+  function updateVisibility () {
     const highlightVisibility = document.querySelectorAll(
-      '.highlight-container',
+      '.highlight-container'
     )
 
     highlightVisibility.forEach((div, index) => {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  function updatePage() {
+  function updatePage () {
     const highlightContainer = document.querySelectorAll('.highlight-container')
     const totalDivs = highlightContainer.length
     if (pageCount > totalDivs - 1 || pageCount <= 0) {
@@ -63,11 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const allGames = data.payload.gamesDetail
       populateGamesContainer(allGames, gamesContainer)
       populateGamesHighlights(allGames, mainHighlightContainer)
-      updateVisibility()
     })
 })
 
-function populateGamesContainer(payload, gamesContainer) {
+function populateGamesContainer (payload, gamesContainer) {
   payload.forEach((game) => {
     gamesContainer.insertAdjacentHTML(
       'beforeend',
@@ -98,12 +97,12 @@ function populateGamesContainer(payload, gamesContainer) {
       ${game.name}
       </div>
     </div>
-    `,
+    `
     )
   })
 }
 
-function populateGamesHighlights(payload, mainHighlightContainer) {
+function populateGamesHighlights (payload, mainHighlightContainer) {
   // insert dom changes here
   payload.forEach((game) => {
     mainHighlightContainer.insertAdjacentHTML(
@@ -132,7 +131,7 @@ function populateGamesHighlights(payload, mainHighlightContainer) {
         Price: $${game.price}
       </div>
     </div>
-`,
+`
     )
   })
 }
