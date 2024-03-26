@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const highlightContainer = document.querySelectorAll('.highlight-container')
   const mainHighlightContainer = document.querySelector('#mainHighlight')
   const totalDivs = highlightContainer.length
-  console.log(highlightContainer)
 
   function updateVisibility () {
     highlightContainer.forEach((div, index) => {
@@ -34,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
       pageCount = 0
     }
     updateVisibility()
-    console.log(updateVisibility())
   }
 
   nextBtn.addEventListener('click', () => {
@@ -61,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const allGames = data.payload.gamesDetail
       populateGamesContainer(allGames, gamesContainer)
       populateGamesHighlights(allGames, mainHighlightContainer)
-      updateVisibility()
     })
 })
 
