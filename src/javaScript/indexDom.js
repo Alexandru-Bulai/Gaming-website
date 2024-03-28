@@ -18,17 +18,21 @@ export function moveMenu (add, sub) {
 document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.querySelector('#highlight-foreward')
   const prevBtn = document.querySelector('#highlight-backward')
-  const highlightContainer = document.querySelectorAll('.highlight-container')
   const mainHighlightContainer = document.querySelector('#mainHighlight')
-  const totalDivs = highlightContainer.length
 
   function updateVisibility () {
-    highlightContainer.forEach((div, index) => {
-      div.style.display = index === pageCount ? 'block' : 'hidden'
+    const highlightVisibility = document.querySelectorAll(
+      '.highlight-container'
+    )
+
+    highlightVisibility.forEach((div, index) => {
+      div.style.display = index === pageCount ? 'block' : 'none'
     })
   }
 
   function updatePage () {
+    const highlightContainer = document.querySelectorAll('.highlight-container')
+    const totalDivs = highlightContainer.length
     if (pageCount > totalDivs - 1 || pageCount <= 0) {
       pageCount = 0
     }
