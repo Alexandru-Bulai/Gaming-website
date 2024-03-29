@@ -37,10 +37,6 @@
 
   /* Highlight counter section */
 
-  .highlight-selection {
-    @apply my-5 h-4 w-12;
-  }
-
   .highlight-container:first-child {
     @apply block;
   }
