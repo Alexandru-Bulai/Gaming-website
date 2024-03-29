@@ -50,6 +50,23 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePage()
   })
 
+  const searchInput = document.querySelector('#search-input')
+
+  searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.trim().toLowerCase()
+    console.log(searchTerm)
+    filterAndDisplayGames(searchTerm)
+  })
+
+  function filterAndDisplayGames (input) {
+    const games = document.querySelectorAll('[data-name]')
+
+    games.forEach((game) => {
+      const name = game.getAttribute('data-name').toLowerCase()
+      game.style.display = name.includes(input) ? 'block' : 'none'
+    })
+  }
+
   const gamesContainer = document.querySelector('#grid-games')
   const gamesPath = 'src/javaScript/games.json'
 
@@ -74,15 +91,14 @@ function populateGamesContainer (payload, gamesContainer) {
       ` 
     <div
       class="game-contaimer group relative h-96 w-72 items-center hover:bg-[#304F69] hover:bg-opacity-90 sm:h-80 sm:w-56 md:h-64 md:w-52"
+      data-name="${game.name.toLowerCase()}"
     >
-      <!-- Game cover image -->
       <img
         class="h-full max-h-[80%] w-full group-hover:hidden"
         src="/assets/home-page/game-cover/${game.cover}"
         alt="${game.name} cover"
       />
 
-      <!-- Game details -->
       <div
         class="mt-16 hidden w-full flex-col justify-center text-center transition-all group-hover:flex"
       >
@@ -94,7 +110,6 @@ function populateGamesContainer (payload, gamesContainer) {
         <div class="game-container-dark-style">Price: $${game.price}</div>
       </div>
 
-      <!-- Game name -->
       <div
         class="absolute bottom-0 flex h-1/5 w-full items-center justify-center bg-[#131B26] text-center font-extrabold text-white"
       >
@@ -112,21 +127,21 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
     mainHighlightContainer.insertAdjacentHTML(
       'beforeend',
       `<div class="highlight-container group hidden h-full w-full max-w-sm border-4 border-[#0B1215]">
-          <!-- Game highlight image -->
           <img class="h-full  w-full group-hover:hidden"
                src="/assets/home-page/highlights/${game.highlight}"
                alt="${game.name} cover"/>
-          <!-- Gameplay images -->
+
           <div class="hidden h-3/5 justify-between group-hover:flex">
             <div class="gameplay-image flex flex-1 justify-center m-3">
             ${gameplayImages}
             </div>
           </div>
-          <!-- Game name -->
+
           <p class="hidden h-1/5 text-center group-hover:block">${game.name}</p>
-          <!-- Add to cart button and price -->
+
           <div class="flex justify-between">
             <div class="dark-button mx-5 hidden size-10 items-center justify-center rounded-full ring-2 group-hover:flex">🛒</div>
+
             <div class="dark-button mx-5 hidden size-10 w-24 items-center justify-center rounded-full ring-2 group-hover:flex">
               Price: $${game.price}
             </div>
