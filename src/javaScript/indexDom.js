@@ -54,17 +54,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   searchInput.addEventListener('input', () => {
     const searchTerm = searchInput.value.trim().toLowerCase()
-    console.log(searchTerm)
     filterAndDisplayGames(searchTerm)
   })
 
   function filterAndDisplayGames (input) {
     const games = document.querySelectorAll('[data-name]')
+    let visibleGamesCount = 0
 
     games.forEach((game) => {
       const name = game.getAttribute('data-name').toLowerCase()
-      game.style.display = name.includes(input) ? 'block' : 'none'
+
+      if (name.includes(input)) {
+        game.style.display = 'block'
+        visibleGamesCount++
+      } else {
+        game.style.display = 'none'
+      }
     })
+
+    const noResultsElement = document.querySelector('#no-results')
+    if (visibleGamesCount === 0) {
+      noResultsElement.style.display = 'flex'
+    }
   }
 
   const gamesContainer = document.querySelector('#grid-games')
