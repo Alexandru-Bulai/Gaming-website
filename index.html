@@ -32,8 +32,9 @@
 
           <div class="mt-4 flex justify-center">
             <input
-              type="text"
-              placeholder="Search"
+              type="search"
+              id="search-input"
+              placeholder="Search for game"
               class="rounded-l-xl rounded-r-none py-2 pl-4 pr-3 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <button
@@ -101,6 +102,23 @@
         id="grid-games"
         class="grid grid-flow-row justify-items-center gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       ></div>
+      <div
+        id="no-results"
+        class="hidden h-screen flex-1 items-start justify-center text-2xl"
+      >
+        No game found
+      </div>
+
+      <button
+        class="dark-button fixed bottom-6 left-4 flex h-10 w-10 items-center justify-center transition-all duration-300 hover:scale-105"
+      >
+        <a href="shop.html">🛒</a>
+        <div
+          class="dark-button absolute -right-5 -top-1 flex h-6 w-6 items-center justify-center"
+        >
+          0
+        </div>
+      </button>
 
       <!-- END HERO -->
       <script type="module" src="./src/javaScript/indexDom.js"></script>
