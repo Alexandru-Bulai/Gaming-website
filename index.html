@@ -10,14 +10,6 @@
     <!-- Hero section -->
     <div class="hero">
       <!-- Menu start -->
-      <div
-        id="hamburger-menu"
-        class="absolute left-10 top-7 flex h-7 w-9 cursor-pointer flex-col items-center justify-center ring-2 ring-[#17ADA7] sm:hidden"
-      >
-        <span class="bar mb-1"></span>
-        <span class="bar mb-1"></span>
-        <span class="bar"></span>
-      </div>
 
       <div class="flex justify-center">
         <div class="mt-5 w-full">
@@ -29,10 +21,11 @@
             />
           </div>
 
-          <nav
-            id="nav-index"
-            class="mt-2 hidden w-full flex-col items-center bg-[#101720] bg-opacity-70 md:flex md:flex-row md:justify-between md:gap-5"
-          >
+          <label class="hamburger-menu">
+            <input type="checkbox" />
+          </label>
+
+          <nav class="nav-index">
             <a href="#" class="nav-button">HOME</a>
             <a href="#" class="nav-button">GAMES</a>
             <a href="#" class="nav-button">GIFTS</a>
@@ -67,6 +60,7 @@
           </div>
         </div>
       </div>
+
       <!-- Menu end -->
 
       <!-- Highlight section  -->
@@ -131,7 +125,6 @@
 
       <!-- END HERO -->
       <script type="module" src="./src/javaScript/indexDom.js"></script>
-      <script type="module" src="./src/javaScript/common.js"></script>
     </div>
   </body>
 </html>
