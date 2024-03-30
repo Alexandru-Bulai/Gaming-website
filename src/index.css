@@ -7,6 +7,13 @@
 @tailwind utilities;
 
 @layer components {
+  :root {
+    --hamburger-gap: 8px;
+    --bar-height: 4px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  }
+
   .hero {
     @apply m-auto block  max-w-screen-2xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-fixed;
   }
@@ -25,7 +32,55 @@
     @apply rounded-3xl bg-[#101720] ring-4 ring-[#17ADA7];
   }
 
+  /* Hamburger menu component */
+
+  .hamburger-menu {
+    @apply absolute left-9 top-7 flex max-w-max cursor-pointer flex-col;
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+    gap: var(--hamburger-gap);
+  }
+
+  .hamburger-menu::before,
+  .hamburger-menu::after,
+  .hamburger-menu input {
+    @apply block  w-10 transform  rounded-full bg-[#17ADA7] duration-300 ease-in-out;
+    content: '';
+    transform-origin: left center;
+    height: var(--bar-height);
+  }
+
+  .hamburger-menu input {
+    @apply pointer-events-none m-0 appearance-none p-0 outline-none;
+  }
+
+  .hamburger-menu:has(input:checked)::before {
+    @apply rotate-45;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+  }
+
+  .hamburger-menu:has(input:checked)::after {
+    @apply -rotate-45;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+  }
+
+  .hamburger-menu input:checked {
+    @apply m-0 opacity-0;
+  }
+
+  .hamburger-menu:has(input:checked) + .nav-index {
+    display: flex;
+    translate: 0;
+  }
+
   /* NAVIGATION BAR SECTION  */
+
+  .nav-index {
+    @apply mt-2 hidden w-full flex-col items-center bg-[#101720] bg-opacity-70 md:flex md:flex-row md:justify-between md:gap-5;
+    transition: translate var(--animation-timing);
+    translate: -100%;
+  }
 
   .nav-button {
     @apply mx-2 my-3 w-10/12 rounded-lg bg-black bg-opacity-50 p-2 text-center ring ring-sky-400 ring-opacity-50 transition-all;
