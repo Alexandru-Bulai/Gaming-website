@@ -27,6 +27,10 @@
 
   /* NAVIGATION BAR SECTION  */
 
+  .bar {
+    @apply m-1  block h-1 w-7 bg-[#17ADA7];
+  }
+
   .nav-button {
     @apply mx-2 my-3 w-10/12 rounded-lg bg-black bg-opacity-50 p-2 text-center ring ring-sky-400 ring-opacity-50 transition-all;
   }
