@@ -37,26 +37,8 @@
               type="search"
               id="search-input"
               placeholder="Search for game"
-              class="rounded-l-xl rounded-r-none py-2 pl-4 pr-3 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="rounded-xl py-2 pl-4 pr-3 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button
-              class="flex items-center justify-center rounded-l-none rounded-r-xl bg-slate-500 px-4 py-2 text-white hover:bg-slate-400"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
@@ -65,7 +47,7 @@
 
       <!-- Highlight section  -->
       <div class="mb-8 mt-20 flex flex-1 justify-center gap-6 sm:mb-0">
-        <div
+        <button
           id="highlight-backward"
           class="dark-button m-auto ml-4 h-10 sm:hidden"
         >
@@ -74,14 +56,14 @@
             src="/assets/home-page/svgs/arrow-left.svg"
             alt="Arrow pointing to the left"
           />
-        </div>
+        </button>
 
         <section
           id="mainHighlight"
           class="flex h-72 flex-1 justify-center gap-6"
         ></section>
 
-        <div
+        <button
           id="highlight-foreward"
           class="dark-button m-auto mr-4 h-10 sm:hidden"
         >
@@ -90,20 +72,14 @@
             src="/assets/home-page/svgs/arrow-right.svg"
             alt="Arrow pointing to the right"
           />
-        </div>
+        </button>
       </div>
-      <!-- Highlight counter -->
-      <div class="flex justify-center gap-8">
-        <div class="dark-button highlight-selection hidden sm:block"></div>
-        <div class="dark-button highlight-selection hidden sm:block"></div>
-        <div class="dark-button highlight-selection hidden md:block"></div>
-        <div class="dark-button highlight-selection hidden lg:block"></div>
-      </div>
+
       <!-- Footer section -->
 
       <div
         id="grid-games"
-        class="grid grid-flow-row justify-items-center gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        class="mt-8 grid grid-flow-row justify-items-center gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       ></div>
       <div
         id="no-results"
@@ -117,10 +93,9 @@
       >
         <a href="shop.html">🛒</a>
         <div
+          id="cart-count"
           class="dark-button absolute -right-5 -top-1 flex h-6 w-6 items-center justify-center"
-        >
-          0
-        </div>
+        ></div>
       </button>
 
       <!-- END HERO -->

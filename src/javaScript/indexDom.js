@@ -16,6 +16,8 @@ export function moveMenu (add, sub) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const gamesContainer = document.querySelector('#grid-games')
+  const gamesPath = 'src/javaScript/games.json'
   const nextBtn = document.querySelector('#highlight-foreward')
   const prevBtn = document.querySelector('#highlight-backward')
   const mainHighlightContainer = document.querySelector('#mainHighlight')
@@ -78,9 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const gamesContainer = document.querySelector('#grid-games')
-  const gamesPath = 'src/javaScript/games.json'
-
   fetch(gamesPath)
     .then((response) => {
       if (!response.ok) {
@@ -114,7 +113,7 @@ function populateGamesContainer (payload, gamesContainer) {
         class="mt-16 hidden w-full flex-col justify-center text-center transition-all group-hover:flex"
       >
         <button
-          class="game-container-dark-style transition-all duration-300 hover:scale-105 hover:ring-opacity-100"
+          class="add-to-cart game-container-dark-style transition-all duration-300 hover:scale-105 hover:ring-opacity-100"
         >
           Add to cart
         </button>
@@ -151,7 +150,7 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
           <p class="hidden h-1/5 text-center group-hover:block">${game.name}</p>
 
           <div class="flex justify-between">
-            <div class="dark-button mx-5 hidden size-10 items-center justify-center rounded-full ring-2 group-hover:flex">🛒</div>
+            <button class="add-to-cart dark-button mx-5 hidden size-10 items-center justify-center rounded-full ring-2 group-hover:flex">🛒</button>
 
             <div class="dark-button mx-5 hidden size-10 w-24 items-center justify-center rounded-full ring-2 group-hover:flex">
               Price: $${game.price}
@@ -160,6 +159,7 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
         </div>`
     )
   })
+  addCountCart()
 }
 
 function getImage (game, index) {
@@ -180,4 +180,17 @@ function getImage (game, index) {
   } else {
     return '<p class="mt-4"> Gameplay could not be found </p>'
   }
+}
+
+function addCountCart () {
+  let count = 0
+  const cartButtons = document.querySelectorAll('.add-to-cart')
+  const cartCountElement = document.querySelector('#cart-count')
+
+  cartButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      count++
+      cartCountElement.innerText = count
+    })
+  })
 }
