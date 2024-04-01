@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const allGames = data.payload.gamesDetail
       populateGamesContainer(allGames, gamesContainer)
       populateGamesHighlights(allGames, mainHighlightContainer)
+      addCountCart()
     })
 })
 
@@ -100,11 +101,11 @@ function populateGamesContainer (payload, gamesContainer) {
       'beforeend',
       ` 
     <div
-      class="game-contaimer group relative h-96 w-72 items-center hover:bg-[#304F69] hover:bg-opacity-90 sm:h-80 sm:w-56 md:h-64 md:w-52"
-      data-name="${game.name.toLowerCase()}"
+      class="game-container group relative h-96 w-72 items-center hover:bg-[#304F69] hover:bg-opacity-90 sm:h-80 sm:w-56 md:h-64 md:w-52"
+      data-name= "${game.name.toLowerCase()}"
     >
       <img
-        class="h-full max-h-[80%] w-full group-hover:hidden"
+        class="h-full max-h-[80%] w-full group-hover:hidden" data-img
         src="/assets/home-page/game-cover/${game.cover}"
         alt="${game.name} cover"
       />
@@ -117,11 +118,11 @@ function populateGamesContainer (payload, gamesContainer) {
         >
           Add to cart
         </button>
-        <div class="game-container-dark-style">Price: $${game.price}</div>
+        <div class="game-container-dark-style" data-price >Price: $${game.price}</div>
       </div>
 
       <div
-        class="absolute bottom-0 flex h-1/5 w-full items-center justify-center bg-[#131B26] text-center font-extrabold text-white"
+        class="absolute bottom-0 flex h-1/5 w-full items-center justify-center bg-[#131B26] text-center font-extrabold text-white" data-name
       >
       ${game.name}
       </div>
@@ -136,8 +137,8 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
     const gameplayImages = getImage(game, index)
     mainHighlightContainer.insertAdjacentHTML(
       'beforeend',
-      `<div class="highlight-container group hidden h-full w-full max-w-sm border-4 border-[#0B1215]">
-          <img class="h-full  w-full group-hover:hidden"
+      `<div class="highlight-container game-container group hidden h-full w-full max-w-sm border-4 border-[#0B1215]">
+          <img class="h-full  w-full group-hover:hidden" data-img
                src="/assets/home-page/highlights/${game.highlight}"
                alt="${game.name} cover"/>
 
@@ -147,19 +148,18 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
             </div>
           </div>
 
-          <p class="hidden h-1/5 text-center group-hover:block">${game.name}</p>
+          <p class="hidden h-1/5 text-center group-hover:block" data-name >${game.name}</p>
 
           <div class="flex justify-between">
             <button class="add-to-cart dark-button mx-5 hidden size-10 items-center justify-center rounded-full ring-2 group-hover:flex">🛒</button>
 
-            <div class="dark-button mx-5 hidden size-10 w-24 items-center justify-center rounded-full ring-2 group-hover:flex">
+            <div class="dark-button mx-5 hidden size-10 w-24 items-center justify-center rounded-full ring-2 group-hover:flex" data-price >
               Price: $${game.price}
             </div>
           </div>
         </div>`
     )
   })
-  addCountCart()
 }
 
 function getImage (game, index) {
@@ -189,8 +189,52 @@ function addCountCart () {
 
   cartButtons.forEach((button) => {
     button.addEventListener('click', () => {
+      const gameContainer = button.closest('.game-container')
+      if (!gameContainer) {
+        return
+      }
+
+      const titleElement = gameContainer.querySelector('[data-name]')
+      if (!titleElement) {
+        return
+      }
+      const title = titleElement.innerText
+
+      const priceElement = gameContainer.querySelector('[data-price]')
+      if (!priceElement) {
+        return
+      }
+      const price = priceElement.innerText
+
+      const imgElement = gameContainer.querySelector('[data-img]')
+      if (!imgElement) {
+        return
+      }
+      const imgSrc = imgElement.src
+
+      addGameToCart(title, price, imgSrc)
       count++
-      cartCountElement.innerText = count
+      if (cartCountElement) {
+        cartCountElement.innerText = count
+      } else {
+
+      }
     })
   })
+}
+
+function addGameToCart (title, price, imgSrc) {
+  const cartContainer = document.querySelector('#game-items-container')
+  if (!cartContainer) return
+
+  const gameCartElement = document.createElement('div')
+  gameCartElement.classList.add('game-items-container')
+
+  gameCartElement.innerHTML = `
+    <img src="${imgSrc}" alt="Game cover" class="h-20 w-20"> 
+    <span>${title}</span>
+    <span>${price}</span>
+  `
+
+  cartContainer.append(gameCartElement)
 }
