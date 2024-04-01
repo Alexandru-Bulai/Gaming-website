@@ -182,9 +182,32 @@ function getImage (game, index) {
   }
 }
 
+function updateCartCount (cartCountElement, count) {
+  if (cartCountElement) {
+    cartCountElement.innerText = count
+  }
+}
+
+export function addGameToCart (cartContainer, title, price, imgSrc) {
+  if (!cartContainer) return false
+
+  const gameCartElement = document.createElement('div')
+  gameCartElement.classList.add('game-item')
+
+  gameCartElement.innerHTML = `
+    <img src="${imgSrc}" alt="Game cover" class="h-20 w-20"> 
+    <span>${title}</span>
+    <span>${price}</span>
+  `
+
+  cartContainer.append(gameCartElement)
+  return true
+}
+
 function addCountCart () {
   let count = 0
   const cartButtons = document.querySelectorAll('.add-to-cart')
+  const cartContainer = document.querySelector('#game-items-container')
   const cartCountElement = document.querySelector('#cart-count')
 
   cartButtons.forEach((button) => {
@@ -194,45 +217,17 @@ function addCountCart () {
         return
       }
 
-      const titleElement = gameContainer.querySelector('[data-name]')
-      if (!titleElement) {
-        return
-      }
-      const title = titleElement.innerText
+      const title = gameContainer.querySelector('[data-name]')?.innerText
+      const price = gameContainer.querySelector('[data-price]')?.innerText
+      const imgSrc = gameContainer.querySelector('[data-img]')?.src
 
-      const priceElement = gameContainer.querySelector('[data-price]')
-      if (!priceElement) {
-        return
-      }
-      const price = priceElement.innerText
-
-      const imgElement = gameContainer.querySelector('[data-img]')
-      if (!imgElement) {
-        return
-      }
-      const imgSrc = imgElement.src
-
-      addGameToCart(title, price, imgSrc)
-      count++
-      if (cartCountElement) {
-        cartCountElement.innerText = count
+      if (title && price && imgSrc) {
+        const added = addGameToCart(cartContainer, title, price, imgSrc)
+        if (added) {
+          count++
+          updateCartCount(cartCountElement, count)
+        }
       }
     })
   })
-}
-
-function addGameToCart (title, price, imgSrc) {
-  const cartContainer = document.querySelector('#game-items-container')
-  if (!cartContainer) return
-
-  const gameCartElement = document.createElement('div')
-  gameCartElement.classList.add('game-items-container')
-
-  gameCartElement.innerHTML = `
-    <img src="${imgSrc}" alt="Game cover" class="h-20 w-20"> 
-    <span>${title}</span>
-    <span>${price}</span>
-  `
-
-  cartContainer.append(gameCartElement)
 }
