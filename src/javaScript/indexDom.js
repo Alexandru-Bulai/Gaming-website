@@ -216,8 +216,6 @@ function addCountCart () {
       count++
       if (cartCountElement) {
         cartCountElement.innerText = count
-      } else {
-
       }
     })
   })
