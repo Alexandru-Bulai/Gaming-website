@@ -206,9 +206,11 @@ export function addGameToCart (cartContainer, title, price, imgSrc) {
   gameCartElement.classList.add('game-item')
 
   gameCartElement.innerHTML = `
-    <img src="${imgSrc}" alt="Game cover" class="h-20 w-20"> 
-    <span>${title}</span>
+  <div class="flex items-center gap-5 p-4"> 
+    <img src="${imgSrc}" alt="Game cover" class="h-20 w-20 rounded-full"> 
+    <span><strong>${title}</stong></span>
     <span>${price}</span>
+    </div>
   `
 
   cartContainer.append(gameCartElement)
