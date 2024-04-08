@@ -138,7 +138,7 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
     mainHighlightContainer.insertAdjacentHTML(
       'beforeend',
       `<div class="highlight-container game-container group hidden h-full w-full max-w-sm border-4 border-[#0B1215]">
-          <img class="h-full  w-full group-hover:hidden" data-img
+          <img class="h-full w-full group-hover:hidden" data-img
                src="/assets/home-page/highlights/${game.highlight}"
                alt="${game.name} cover"/>
 
@@ -148,35 +148,46 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
             </div>
           </div>
 
-          <p class="hidden h-1/5 text-center group-hover:block" data-name >${game.name}</p>
+          <p class="hidden h-1/5 text-center group-hover:block" data-name>${game.name}</p>
 
           <div class="flex justify-between">
             <button class="add-to-cart dark-button mx-5 hidden size-10 items-center justify-center rounded-full ring-2 group-hover:flex">🛒</button>
 
-            <div class="dark-button mx-5 hidden size-10 w-24 items-center justify-center rounded-full ring-2 group-hover:flex" data-price >
+            <div class="dark-button mx-5 hidden size-10 w-24 items-center justify-center rounded-full ring-2 group-hover:flex" data-price>
               Price: $${game.price}
             </div>
           </div>
         </div>`
     )
+
+    const highlightContainer = mainHighlightContainer.lastElementChild
+
+    const imgElement = highlightContainer.querySelector('.gameplay-image img')
+    const startImageUpdate = () => {
+      imgElement.src = `/assets/home-page/gameplay/${game.gameplay[0]}`
+      intervalId = setInterval(updateImage, 2000)
+    }
+
+    const stopImageUpdate = () => {
+      clearInterval(intervalId)
+    }
+
+    highlightContainer.addEventListener('mouseenter', startImageUpdate)
+    highlightContainer.addEventListener('mouseleave', stopImageUpdate)
+
+    let currentIndex = 0
+    let intervalId
+
+    const updateImage = () => {
+      currentIndex = (currentIndex + 1) % game.gameplay.length
+      imgElement.src = `/assets/home-page/gameplay/${game.gameplay[currentIndex]}`
+    }
   })
 }
 
 function getImage (game, index) {
-  let currentIndex = 0
-
   if (Array.isArray(game.gameplay) && game.gameplay.length > 0) {
-    const gameplayImages = `<img class="w-full h-full gameplay-image-${index}" src="/assets/home-page/gameplay/${game.gameplay[currentIndex]}" alt="${game.name} gameplay moment"/>`
-
-    const updateImage = () => {
-      currentIndex = (currentIndex + 1) % game.gameplay.length
-      const imgElement = document.querySelector(`.gameplay-image-${index}`)
-      imgElement.src = `/assets/home-page/gameplay/${game.gameplay[currentIndex]}`
-    }
-
-    setInterval(updateImage, 2000)
-
-    return gameplayImages
+    return `<img class="w-full h-full gameplay-image-${index}" src="/assets/home-page/gameplay/${game.gameplay[0]}" alt="${game.name} gameplay moment"/>`
   } else {
     return '<p class="mt-4"> Gameplay could not be found </p>'
   }
@@ -195,9 +206,11 @@ export function addGameToCart (cartContainer, title, price, imgSrc) {
   gameCartElement.classList.add('game-item')
 
   gameCartElement.innerHTML = `
-    <img src="${imgSrc}" alt="Game cover" class="h-20 w-20"> 
-    <span>${title}</span>
+  <div class="flex items-center gap-5 p-4"> 
+    <img src="${imgSrc}" alt="Game cover" class="h-20 w-20 rounded-full"> 
+    <span><strong>${title}</stong></span>
     <span>${price}</span>
+    </div>
   `
 
   cartContainer.append(gameCartElement)

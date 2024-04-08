@@ -119,4 +119,16 @@
   .game-container-dark-style {
     @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50;
   }
+
+  #game-items-container {
+    @apply dark-button dark-scrollbar fixed bottom-10 left-12 hidden max-h-96 flex-col gap-5 overflow-x-scroll;
+  }
+
+  #game-items-container:hover {
+    @apply flex;
+  }
+
+  #cart-button:hover + #game-items-container {
+    @apply flex;
+  }
 }
