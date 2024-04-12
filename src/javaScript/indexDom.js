@@ -105,25 +105,21 @@ function populateGamesContainer (payload, gamesContainer) {
       data-name= "${game.name.toLowerCase()}"
     >
       <img
-        class="h-full max-h-[80%] w-full group-hover:hidden" data-img
+        class="game-container-cover h-full max-h-[80%] w-full " data-img
         src="/assets/home-page/game-cover/${game.cover}"
         alt="${game.name} cover"
       />
 
-      <div
-        class="mt-16 hidden w-full flex-col justify-center text-center transition-all group-hover:flex"
-      >
-        <button
-          class="add-to-cart game-container-dark-style transition-all duration-300 hover:scale-105 hover:ring-opacity-100"
-        >
+      <div class="game-container-stats">
+        <button class="add-to-cart game-container-dark-style  transition-all duration-300 hover:scale-105 hover:ring-opacity-100 w-64 sm:w-52 md:w-48">
           Add to cart
         </button>
+
         <div class="game-container-dark-style" data-price >Price: $${game.price}</div>
       </div>
 
       <div
-        class="absolute bottom-0 flex h-1/5 w-full items-center justify-center bg-[#131B26] text-center font-extrabold text-white" data-name
-      >
+        class="absolute bottom-0 flex h-1/5 w-full items-center justify-center bg-[#131B26] text-center font-extrabold text-white" data-name>
       ${game.name}
       </div>
     </div>
@@ -137,27 +133,26 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
     const gameplayImages = getImage(game, index)
     mainHighlightContainer.insertAdjacentHTML(
       'beforeend',
-      `<div class="highlight-container game-container group hidden h-full w-full max-w-sm border-4 border-[#0B1215]">
-          <img class="h-full w-full group-hover:hidden" data-img
-               src="/assets/home-page/highlights/${game.highlight}"
-               alt="${game.name} cover"/>
+      `
+      <div class="highlight-container game-container group">
+          <img class="highlight-img" data-img src="/assets/home-page/highlights/${game.highlight}" alt="${game.name} cover"/>
 
-          <div class="hidden h-3/5 justify-between group-hover:flex">
+        <div class="hidden h-3/5 justify-between group-hover:flex">
             <div class="gameplay-image flex flex-1 justify-center m-3">
-            ${gameplayImages}
+                ${gameplayImages}
             </div>
-          </div>
+        </div>
 
-          <p class="hidden h-1/5 text-center group-hover:block" data-name>${game.name}</p>
+        <p class="hidden h-1/5 text-center group-hover:block" data-name>${game.name}</p>
 
-          <div class="flex justify-between">
+        <div class="flex justify-between">
             <button class="add-to-cart dark-button mx-5 hidden size-10 items-center justify-center rounded-full ring-2 group-hover:flex">🛒</button>
-
             <div class="dark-button mx-5 hidden size-10 w-24 items-center justify-center rounded-full ring-2 group-hover:flex" data-price>
-              Price: $${game.price}
+                Price: $${game.price}
             </div>
-          </div>
-        </div>`
+        </div> 
+      </div>
+        `
     )
 
     const highlightContainer = mainHighlightContainer.lastElementChild

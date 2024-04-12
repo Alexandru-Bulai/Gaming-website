@@ -92,6 +92,18 @@
 
   /* Highlight counter section */
 
+  .highlight-container {
+    @apply relative hidden h-full w-full max-w-sm  border-4 border-[#0B1215];
+  }
+
+  .highlight-img {
+    @apply pointer-events-none absolute inset-0 h-full  w-full transition-opacity duration-700;
+  }
+
+  .highlight-container:hover .highlight-img {
+    @apply opacity-0;
+  }
+
   .highlight-container:first-child {
     @apply block;
   }
@@ -114,8 +126,24 @@
     }
   }
 
-  /* Footer section */
+  /* Grid section */
+  .game-container .game-container-cover {
+    @apply pointer-events-none absolute inset-0 h-full w-full transition-opacity duration-500;
+  }
 
+  .game-container:hover .game-container-cover {
+    @apply opacity-0;
+  }
+
+  .game-container-stats {
+    @apply relative -bottom-20 w-full  flex-col justify-center text-center opacity-0 transition-all duration-700 sm:-bottom-20 md:-bottom-14 lg:-bottom-12;
+    transform: translateY(100%);
+  }
+
+  .game-container.group:hover .game-container-stats {
+    @apply opacity-100;
+    transform: translateY(0);
+  }
   .game-container-dark-style {
     @apply mx-2 my-3 rounded-lg bg-black bg-opacity-50 p-2 text-white ring ring-sky-400 ring-opacity-50;
   }
@@ -130,5 +158,9 @@
 
   #cart-button:hover + #game-items-container {
     @apply flex;
+  }
+
+  .game-container:hover .image-container img {
+    opacity: 0;
   }
 }
