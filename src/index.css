@@ -15,7 +15,7 @@
   }
 
   .hero {
-    @apply m-auto block  max-w-screen-2xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-fixed;
+    @apply m-auto block min-h-screen max-w-screen-2xl items-center bg-[url('/assets/home-page/hero.jpg')] bg-fixed;
   }
 
   /* REUSABLE STYLES */

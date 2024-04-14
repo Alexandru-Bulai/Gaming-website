@@ -1,6 +1,6 @@
 export let pageCount = 0
 
-export function moveMenu (add, sub) {
+export function moveMenu(add, sub) {
   if (add) {
     pageCount += 1
   }
@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.querySelector('#highlight-backward')
   const mainHighlightContainer = document.querySelector('#mainHighlight')
 
-  function updateVisibility () {
+  function updateVisibility() {
     const highlightVisibility = document.querySelectorAll(
-      '.highlight-container'
+      '.highlight-container',
     )
 
     highlightVisibility.forEach((div, index) => {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  function updatePage () {
+  function updatePage() {
     const highlightContainer = document.querySelectorAll('.highlight-container')
     const totalDivs = highlightContainer.length
 
@@ -59,25 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
     filterAndDisplayGames(searchTerm)
   })
 
-  function filterAndDisplayGames (input) {
-    const games = document.querySelectorAll('[data-name]')
+  function filterAndDisplayGames(input) {
     let visibleGamesCount = 0
+    const gridContainer = document.querySelectorAll('.grid-container')
 
-    games.forEach((game) => {
+    gridContainer.forEach((game) => {
       const name = game.getAttribute('data-name').toLowerCase()
+      console.log(gridContainer)
 
-      if (name.includes(input)) {
-        game.style.display = 'block'
-        visibleGamesCount++
-      } else {
-        game.style.display = 'none'
+      if (game.getAttribute('data-name').toLowerCase() === name) {
+        if (name.includes(input)) {
+          game.style.display = 'block'
+          visibleGamesCount++
+        } else {
+          game.style.display = 'none'
+        }
       }
     })
 
     const noResultsElement = document.querySelector('#no-results')
-    if (visibleGamesCount === 0) {
-      noResultsElement.style.display = 'flex'
-    }
+    noResultsElement.style.display = visibleGamesCount === 0 ? 'flex' : 'none'
   }
 
   fetch(gamesPath)
@@ -95,13 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 })
 
-function populateGamesContainer (payload, gamesContainer) {
+function populateGamesContainer(payload, gamesContainer) {
   payload.forEach((game) => {
     gamesContainer.insertAdjacentHTML(
       'beforeend',
       ` 
     <div
-      class="game-container group relative h-96 w-72 items-center hover:bg-[#304F69] hover:bg-opacity-90 sm:h-80 sm:w-56 md:h-64 md:w-52"
+      class="game-container grid-container group relative h-96 w-72 items-center hover:bg-[#304F69] hover:bg-opacity-90 sm:h-80 sm:w-56 md:h-64 md:w-52"
       data-name= "${game.name.toLowerCase()}"
     >
       <img
@@ -123,12 +124,12 @@ function populateGamesContainer (payload, gamesContainer) {
       ${game.name}
       </div>
     </div>
-    `
+    `,
     )
   })
 }
 
-function populateGamesHighlights (payload, mainHighlightContainer) {
+function populateGamesHighlights(payload, mainHighlightContainer) {
   payload.forEach((game, index) => {
     const gameplayImages = getImage(game, index)
     mainHighlightContainer.insertAdjacentHTML(
@@ -152,7 +153,7 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
             </div>
         </div> 
       </div>
-        `
+        `,
     )
 
     const highlightContainer = mainHighlightContainer.lastElementChild
@@ -180,7 +181,7 @@ function populateGamesHighlights (payload, mainHighlightContainer) {
   })
 }
 
-function getImage (game, index) {
+function getImage(game, index) {
   if (Array.isArray(game.gameplay) && game.gameplay.length > 0) {
     return `<img class="w-full h-full gameplay-image-${index}" src="/assets/home-page/gameplay/${game.gameplay[0]}" alt="${game.name} gameplay moment"/>`
   } else {
@@ -188,13 +189,13 @@ function getImage (game, index) {
   }
 }
 
-function updateCartCount (cartCountElement, count) {
+function updateCartCount(cartCountElement, count) {
   if (cartCountElement) {
     cartCountElement.innerText = count
   }
 }
 
-export function addGameToCart (cartContainer, title, price, imgSrc) {
+export function addGameToCart(cartContainer, title, price, imgSrc) {
   if (!cartContainer) return false
 
   const gameCartElement = document.createElement('div')
@@ -212,7 +213,7 @@ export function addGameToCart (cartContainer, title, price, imgSrc) {
   return true
 }
 
-function addCountCart () {
+function addCountCart() {
   let count = 0
   const cartButtons = document.querySelectorAll('.add-to-cart')
   const cartContainer = document.querySelector('#game-items-container')
