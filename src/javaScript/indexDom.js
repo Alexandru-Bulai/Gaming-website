@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gridContainer.forEach((game) => {
       const name = game.getAttribute('data-name').toLowerCase()
-      console.log(gridContainer)
 
       if (game.getAttribute('data-name').toLowerCase() === name) {
         if (name.includes(input)) {
