@@ -66,13 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
     gridContainer.forEach((game) => {
       const name = game.getAttribute('data-name').toLowerCase()
 
-      if (game.getAttribute('data-name').toLowerCase() === name) {
-        if (name.includes(input)) {
-          game.style.display = 'block'
-          visibleGamesCount++
-        } else {
-          game.style.display = 'none'
-        }
+      if (name.includes(input)) {
+        game.style.display = 'block'
+        visibleGamesCount++
+      } else {
+        game.style.display = 'none'
       }
     })
 
