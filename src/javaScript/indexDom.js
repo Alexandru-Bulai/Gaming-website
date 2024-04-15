@@ -60,10 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   function filterAndDisplayGames (input) {
-    const games = document.querySelectorAll('[data-name]')
     let visibleGamesCount = 0
+    const gridContainer = document.querySelectorAll('.grid-container')
 
-    games.forEach((game) => {
+    gridContainer.forEach((game) => {
       const name = game.getAttribute('data-name').toLowerCase()
 
       if (name.includes(input)) {
@@ -75,9 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const noResultsElement = document.querySelector('#no-results')
-    if (visibleGamesCount === 0) {
-      noResultsElement.style.display = 'flex'
-    }
+    noResultsElement.style.display = visibleGamesCount === 0 ? 'flex' : 'none'
   }
 
   fetch(gamesPath)
@@ -101,7 +99,7 @@ function populateGamesContainer (payload, gamesContainer) {
       'beforeend',
       ` 
     <div
-      class="game-container group relative h-96 w-72 items-center hover:bg-[#304F69] hover:bg-opacity-90 sm:h-80 sm:w-56 md:h-64 md:w-52"
+      class="game-container grid-container group relative h-96 w-72 items-center hover:bg-[#304F69] hover:bg-opacity-90 sm:h-80 sm:w-56 md:h-64 md:w-52"
       data-name= "${game.name.toLowerCase()}"
     >
       <img
