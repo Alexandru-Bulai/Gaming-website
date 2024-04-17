@@ -192,26 +192,48 @@ function updateCartCount (cartCountElement, count) {
   }
 }
 
+const gameCounts = {}
+
 export function addGameToCart (cartContainer, title, price, imgSrc) {
   if (!cartContainer) return false
 
-  const gameCartElement = document.createElement('div')
-  gameCartElement.classList.add('game-item')
+  if (gameCounts[title]) {
+    gameCounts[title]++
+  } else {
+    gameCounts[title] = 1
+  }
 
-  gameCartElement.innerHTML = `
-  <div class="flex items-center gap-5 p-4"> 
-    <img src="${imgSrc}" alt="Game cover" class="h-20 w-20 rounded-full"> 
-    <span><strong>${title}</stong></span>
-    <span>${price}</span>
-    </div>
-  `
+  const existingGameElement = cartContainer.querySelector(
+    `.game-item[data-title="${title}"]`
+  )
 
-  cartContainer.append(gameCartElement)
+  if (existingGameElement) {
+    existingGameElement.querySelector('.game-count').innerText =
+      gameCounts[title]
+  } else {
+    const gameCartElement = document.createElement('div')
+    gameCartElement.classList.add('game-item')
+    gameCartElement.dataset.title = title
+
+    gameCartElement.innerHTML = `
+      <div class="flex flex-1 justify-between text-center items-center gap-5 p-4 w-auto"> 
+        <img src="${imgSrc}" alt="Game cover" class="h-20 w-20 rounded-full"> 
+        <span><strong>${title}</strong></span>
+        <div class="flex justify-end gap-5">
+        <span>${price}</span>
+        <span class="game-count dark-button text-center w-6 h-6 ring-1">${gameCounts[title]}</span>
+        </div>
+      </div>
+    `
+
+    cartContainer.appendChild(gameCartElement)
+  }
+
   return true
 }
 
 function addCountCart () {
-  let count = 0
+  let totalCount = 0
   const cartButtons = document.querySelectorAll('.add-to-cart')
   const cartContainer = document.querySelector('#game-items-container')
   const cartCountElement = document.querySelector('#cart-count')
@@ -230,8 +252,8 @@ function addCountCart () {
       if (title && price && imgSrc) {
         const added = addGameToCart(cartContainer, title, price, imgSrc)
         if (added) {
-          count++
-          updateCartCount(cartCountElement, count)
+          totalCount++
+          updateCartCount(cartCountElement, totalCount)
         }
       }
     })
