@@ -1,0 +1,19 @@
+body {
+  background-color: #020d19;
+  color: #a4a4a5;
+}
+
+#main-container {
+  display: flex;
+  border: 0.2rem solid #49474d;
+  border-radius: 1rem;
+  max-width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+
+  h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+      sans-serif;
+    margin: auto;
+  }
+}
