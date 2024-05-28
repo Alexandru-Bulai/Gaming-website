@@ -8,5 +8,13 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom'
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        cart: 'cart.html'
+      }
+    }
   }
 })
