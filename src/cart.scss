@@ -5,6 +5,7 @@ body {
 
 #main-container {
   display: flex;
+  flex-direction: column;
   border: 0.2rem solid #49474d;
   border-radius: 1rem;
   max-width: 90%;
@@ -16,4 +17,74 @@ body {
       sans-serif;
     margin: auto;
   }
+
+  hr.shopping-cart-line {
+    border: none;
+    height: 0.5rem;
+    margin: 1rem 12rem 1rem 0rem;
+    background: linear-gradient(to right, #333, transparent);
+  }
+
+  #cart-item-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .game-img-title {
+    display: flex;
+    margin: 1rem 0rem 0rem 0rem;
+  }
+
+  .game-title {
+    display: none;
+    align-items: center;
+  }
+
+  img {
+    height: 3.5rem;
+    border-radius: 40%;
+  }
+
+  .price {
+    margin: var(--cart-item-margin);
+    margin-left: 0.2rem;
+  }
+
+  .item-count-container {
+    display: flex;
+    gap: 0.5rem;
+    margin: var(--cart-item-margin);
+    margin-left: -0.2rem;
+  }
+
+  .subtotal-count {
+    display: flex;
+    gap: 1.5rem;
+    margin: var(--cart-item-margin);
+    margin-left: 0.3rem;
+  }
+
+  .add-item {
+    background-color: transparent;
+    padding: 0rem 0.3rem 0rem 0.3rem;
+    border-radius: 100%;
+    border: 0.2rem solid #49474d;
+  }
+
+  .remove-item {
+    background-color: transparent;
+    padding: 0rem 0.3rem 0rem 0.3rem;
+    border-radius: 100%;
+    border: 0.2rem solid #49474d;
+  }
+
+  .delete-item {
+    padding: 0rem 0.3rem 0rem 0.3rem;
+    border-radius: 100%;
+    border: 0.2rem solid #49474d;
+  }
+}
+
+:root {
+  --cart-item-margin: 2rem 0rem 2rem 0rem;
 }
