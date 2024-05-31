@@ -1,3 +1,26 @@
+:root {
+  --cart-item-margin: 2rem 0rem 2rem 0rem;
+  --border-color: #49474d;
+  --background-color: #333;
+  --container-max-width: 90%;
+  --container-border-radius: 1rem;
+  --container-padding: 1.5rem;
+  --margin-top: 2rem;
+  --margin-bottom: 0.5rem;
+  --line-height: 0.5rem;
+  --line-color: #333;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 body {
   background-color: #020d19;
   color: #a4a4a5;
@@ -18,7 +41,7 @@ body {
     margin: auto;
   }
 
-  hr.shopping-cart-line {
+  hr.shopping-cart-line-start {
     border: none;
     height: 0.5rem;
     margin: 1rem 12rem 1rem 0rem;
@@ -57,13 +80,6 @@ body {
     margin-left: -0.2rem;
   }
 
-  .subtotal-count {
-    display: flex;
-    gap: 1.5rem;
-    margin: var(--cart-item-margin);
-    margin-left: 0.3rem;
-  }
-
   .add-item {
     background-color: transparent;
     padding: 0rem 0.3rem 0rem 0.3rem;
@@ -83,8 +99,67 @@ body {
     border-radius: 100%;
     border: 0.2rem solid #49474d;
   }
+
+  .subtotal-count {
+    display: flex;
+    gap: 1.5rem;
+    margin: var(--cart-item-margin);
+    margin-left: 0.3rem;
+  }
+
+  .update-cart-btn {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+
+    .update-btn {
+      margin: 2% 5% 2% 0%;
+      width: 8rem;
+      border-radius: 16%;
+      border: 0.2rem solid #49474d;
+    }
+  }
+
+  hr#shopping-cart-line-end {
+    border: none;
+    height: 0.5rem;
+    margin: 1rem 0rem 1rem 12rem;
+    background: linear-gradient(to left, #333, transparent);
+  }
 }
 
-:root {
-  --cart-item-margin: 2rem 0rem 2rem 0rem;
+#summary-container {
+  display: flex;
+  flex-direction: column;
+  border: 0.2rem solid var(--border-color);
+  border-radius: var(--container-border-radius);
+  max-width: var(--container-max-width);
+  margin: auto;
+  margin-top: var(--margin-top);
+  padding: var(--container-padding);
+
+  h1 {
+    @include flex-center;
+  }
+
+  #summary-title-line {
+    border: none;
+    height: var(--line-height);
+    margin: 0rem 0rem 1rem 0rem;
+    background: linear-gradient(to bottom, var(--line-color), transparent);
+  }
+
+  .summary-break-line {
+    border: none;
+    height: 0.01rem;
+    margin: 1rem 0rem 1rem 0rem;
+    background: var(--line-color);
+  }
+
+  #summary-subtotal,
+  #summary-vat,
+  #summary-total {
+    @include flex-space-between;
+    margin-bottom: var(--margin-bottom);
+  }
 }

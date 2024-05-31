@@ -11,7 +11,7 @@
   <div id="main-container">
     <h1>Shopping cart</h1>
 
-    <hr class="shopping-cart-line">
+    <hr class="shopping-cart-line-start">
 
     <div id="cart-item-container">
       <div>Product
@@ -59,9 +59,40 @@
         <div class="subtotal">$120</div>
         <div class="delete-item">X</div>
       </div>
+    </div>
+    <hr id="shopping-cart-line-end">
 
+    <div class="update-cart-btn">
+      <button class="btn btn-small update-btn text-muted" disabled><strong>Update</strong></button>
     </div>
   </div>
+
+  <div id="summary-container">
+    <h1>Summary</h1>
+    <hr id="summary-title-line">
+
+    <div><strong>Estimate Shipping and Tax:</strong></div>
+    <hr class="summary-break-line">
+
+    <div id="summary-subtotal">
+      <div>Subtotal:</div>
+      <div>$240</div>
+    </div>
+
+    <div id="summary-vat">
+      <div>VAT:</div>
+      <div>$48</div>
+    </div>
+
+    <div id="summary-total">
+      <div>Order Total:</div>
+      <div>$288</div>
+    </div>
+
+    <hr class="summary-break-line">
+  </div>
+
+
 
 
 
