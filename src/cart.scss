@@ -41,8 +41,7 @@ body {
     margin: auto;
   }
 
-  hr.shopping-cart-line-start {
-    border: none;
+  .shopping-cart-line-start {
     height: 0.5rem;
     margin: 1rem 12rem 1rem 0rem;
     background: linear-gradient(to right, #333, transparent);
@@ -120,8 +119,7 @@ body {
     }
   }
 
-  hr#shopping-cart-line-end {
-    border: none;
+  #shopping-cart-line-end {
     height: 0.5rem;
     margin: 1rem 0rem 1rem 12rem;
     background: linear-gradient(to left, #333, transparent);
@@ -143,14 +141,12 @@ body {
   }
 
   #summary-title-line {
-    border: none;
     height: var(--line-height);
     margin: 0rem 0rem 1rem 0rem;
     background: linear-gradient(to bottom, var(--line-color), transparent);
   }
 
   .summary-break-line {
-    border: none;
     height: 0.01rem;
     margin: 1rem 0rem 1rem 0rem;
     background: var(--line-color);
