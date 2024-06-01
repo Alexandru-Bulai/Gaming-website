@@ -9,59 +9,96 @@
 
 <body>
   <div id="main-container">
-    <h1>Shopping cart</h1>
+    <div id="item-container">
+      <h1>Shopping cart</h1>
 
-    <hr class="shopping-cart-line">
+      <div class="shopping-cart-line-start"></div>
 
-    <div id="cart-item-container">
-      <div>Product
-        <div class="game-img-title"><img src="/assets/home-page/game-cover/cyberpunk-2077.png" alt="">
-          <div class="game-title">Cyberpunk 2077</div>
+
+      <div id="cart-item-container">
+        <div>Product
+          <div class="game-img-title"><img src="/assets/home-page/game-cover/cyberpunk-2077.png" alt="">
+            <div class="game-title">Cyberpunk 2077</div>
+          </div>
+        </div>
+
+        <div>Price
+          <div class="price">$60</div>
+        </div>
+
+        <div>Quantity
+          <div class="item-count-container">
+            <button class="remove-item">-</button>
+            <div class="quantity">2</div>
+            <button class="add-item">+</button>
+          </div>
+
+        </div>
+
+        <div>Subtotal
+          <div class="subtotal-count">
+            <div class="subtotal">$120</div>
+            <div class="delete-item">X</div>
+          </div>
         </div>
       </div>
 
-      <div>Price
-        <div class="price">$60</div>
-      </div>
 
-      <div>Quantity
+      <div id="cart-item-container">
+        <div class="game-img-title"><img src="/assets/home-page/game-cover/cyberpunk-2077.png" alt="">
+          <div class="game-title">Cyberpunk 2077</div>
+        </div>
+
+        <div class="price">$60</div>
+
         <div class="item-count-container">
           <button class="remove-item">-</button>
           <div class="quantity">2</div>
           <button class="add-item">+</button>
         </div>
 
-      </div>
-
-      <div>Subtotal
         <div class="subtotal-count">
           <div class="subtotal">$120</div>
           <div class="delete-item">X</div>
         </div>
       </div>
+      <div id="shopping-cart-line-end"></div>
+
+      <div class="update-cart-btn">
+        <button class="btn btn-small update-btn text-muted" disabled><strong>Update</strong></button>
+      </div>
     </div>
 
+    <div id="summary-container">
+      <h1>Summary</h1>
+      <div id="summary-title-line"></div>
 
-    <div id="cart-item-container">
-      <div class="game-img-title"><img src="/assets/home-page/game-cover/cyberpunk-2077.png" alt="">
-        <div class="game-title">Cyberpunk 2077</div>
+      <div><strong>Estimate Shipping and Tax:</strong></div>
+      <div class="summary-break-line"></div>
+
+      <div id="summary-subtotal">
+        <div>Subtotal:</div>
+        <div>$240</div>
       </div>
 
-      <div class="price">$60</div>
-
-      <div class="item-count-container">
-        <button class="remove-item">-</button>
-        <div class="quantity">2</div>
-        <button class="add-item">+</button>
+      <div id="summary-vat">
+        <div>VAT:</div>
+        <div>$48</div>
       </div>
 
-      <div class="subtotal-count">
-        <div class="subtotal">$120</div>
-        <div class="delete-item">X</div>
+      <div id="summary-total">
+        <div>Order Total:</div>
+        <div>$288</div>
       </div>
 
+      <div class="summary-break-line"></div>
+
+      <button id="checkout-button">PROCEED TO CHECKOUT</button>
     </div>
   </div>
+
+
+
 
 
 
