@@ -197,6 +197,24 @@ const gameCounts = {}
 export function addGameToCart (cartContainer, title, price, imgSrc) {
   if (!cartContainer) return false
 
+  const cart = JSON.parse(localStorage.getItem('cart')) || []
+  const existingItem = cart.find((item) => item.name === title)
+
+  if (existingItem) {
+    existingItem.quantity += 1
+  } else {
+    const newItem = {
+      name: title,
+      price,
+      imgSrc,
+      quantity: 1
+    }
+    cart.push(newItem)
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart))
+  console.log(cart)
+
   if (gameCounts[title]) {
     gameCounts[title]++
   } else {
