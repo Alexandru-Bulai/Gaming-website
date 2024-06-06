@@ -55,7 +55,6 @@ body {
     #cart-item-container {
       display: flex;
       justify-content: space-around;
-      align-items: center;
     }
 
     .game-img-title {
@@ -74,17 +73,17 @@ body {
     }
 
     img {
-      height: 3.5rem;
+      height: 3.2rem;
       border-radius: 40%;
     }
 
     .price {
-      margin: var(--cart-item-margin);
-      margin-left: 0.2rem;
+      margin: 2.1rem 0rem 2.5rem 0rem;
     }
 
     .item-count-container {
       display: flex;
+      align-items: center;
       gap: 0.5rem;
       margin: var(--cart-item-margin);
       margin-left: -0.2rem;
@@ -108,13 +107,15 @@ body {
       padding: 0rem 0.3rem 0rem 0.3rem;
       border-radius: 100%;
       border: 0.2rem solid #49474d;
+      cursor: pointer;
     }
 
     .subtotal-count {
       display: flex;
-      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
       margin: var(--cart-item-margin);
-      margin-left: 0.3rem;
     }
 
     .update-cart-btn {
