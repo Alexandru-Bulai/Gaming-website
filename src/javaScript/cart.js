@@ -17,12 +17,9 @@ export function displayCartItems () {
     !priceItemCart ||
     !quantityItemCart ||
     !subtotalItemCart
-  ) { return }
-
-  productItemCart.innerHTML = 'Product'
-  priceItemCart.innerHTML = 'Price'
-  quantityItemCart.innerHTML = 'Quantity'
-  subtotalItemCart.innerHTML = 'Subtotal'
+  ) {
+    return
+  }
 
   cartItems.forEach((item) => {
     const productElement = document.createElement('div')
