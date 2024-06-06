@@ -21,6 +21,13 @@
   justify-content: space-between;
 }
 
+@mixin button-border-padding {
+  background-color: transparent;
+  padding: 0rem 0.4rem 0rem 0.4rem;
+  border-radius: 100%;
+  border: 0.2rem solid #49474d;
+}
+
 body {
   background-color: #020d19;
   color: #a4a4a5;
@@ -78,7 +85,7 @@ body {
     }
 
     .price {
-      margin: 2.1rem 0rem 2.5rem 0rem;
+      margin: 1.9rem 0rem 2.6rem 0rem;
     }
 
     .item-count-container {
@@ -90,24 +97,15 @@ body {
     }
 
     .add-item {
-      background-color: transparent;
-      padding: 0rem 0.3rem 0rem 0.3rem;
-      border-radius: 100%;
-      border: 0.2rem solid #49474d;
+      @include button-border-padding();
     }
 
     .remove-item {
-      background-color: transparent;
-      padding: 0rem 0.3rem 0rem 0.3rem;
-      border-radius: 100%;
-      border: 0.2rem solid #49474d;
+      @include button-border-padding();
     }
 
     .delete-item {
-      padding: 0rem 0.3rem 0rem 0.3rem;
-      border-radius: 100%;
-      border: 0.2rem solid #49474d;
-      cursor: pointer;
+      @include button-border-padding();
     }
 
     .subtotal-count {

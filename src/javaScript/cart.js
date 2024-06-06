@@ -50,7 +50,7 @@ export function displayCartItems () {
     const subtotal = priceNumber * item.quantity
     subtotalElement.innerHTML = `
       <div class="subtotal">$${subtotal.toFixed(2)}</div>
-      <div class="delete-item">X</div>
+      <button class="delete-item">X</button>
     `
     subtotalItemCart.appendChild(subtotalElement)
   })
