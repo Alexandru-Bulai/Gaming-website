@@ -56,6 +56,41 @@ export function displayCartItems () {
   })
 }
 
+function displaySummaryValue () {
+  const summarySubtotal = document.getElementById('summary-subtotal')
+  const summaryVat = document.getElementById('summary-vat')
+  const summaryTotal = document.getElementById('summary-total')
+  const cartItemSubtotals = document.querySelectorAll('.subtotal')
+
+  let subtotal = 0
+
+  cartItemSubtotals.forEach((priceElement) => {
+    const price = parseFloat(priceElement.textContent.replace(/[^0-9.-]+/g, ''))
+    if (!isNaN(price)) {
+      subtotal += price
+    }
+  })
+
+  const vatRate = 0.2
+  const vat = subtotal * vatRate
+  const total = subtotal + vat
+
+  summarySubtotal.innerHTML = `
+    <div>Subtotal:</div>
+    <div>$${subtotal.toFixed(2)}</div>
+  `
+
+  summaryVat.innerHTML = `
+    <div>VAT:</div>
+    <div>$${vat.toFixed(2)}</div>
+  `
+
+  summaryTotal.innerHTML = `
+    <div>Order Total:</div>
+    <div>$${total.toFixed(2)}</div>
+  `
+}
+
 export function setMockCartData () {
   const mockCartData = [
     {
@@ -74,4 +109,7 @@ export function setMockCartData () {
   localStorage.setItem('cart', JSON.stringify(mockCartData))
 }
 
-document.addEventListener('DOMContentLoaded', displayCartItems)
+document.addEventListener('DOMContentLoaded', () => {
+  displayCartItems()
+  displaySummaryValue()
+})
