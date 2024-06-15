@@ -1,12 +1,10 @@
 :root {
-  --cart-item-margin: 2rem 0rem 2rem 0rem;
+  --cart-item-margin: 2.3rem 0rem 2.3rem 0rem;
   --border-color: #49474d;
-  --background-color: #333;
+  --background-colmax-or: #333;
   --container-max-width: 90%;
   --container-border-radius: 1rem;
   --container-padding: 1.5rem;
-  --margin-top: 2rem;
-  --margin-bottom: 0.5rem;
   --line-height: 0.5rem;
   --line-color: #333;
 }
@@ -28,6 +26,11 @@
   border: 0.2rem solid #49474d;
 }
 
+@mixin container-margin {
+  max-width: var(--container-max-width);
+  width: 100%;
+}
+
 body {
   background-color: #020d19;
   color: #a4a4a5;
@@ -39,12 +42,12 @@ body {
   flex-direction: column;
 
   #item-container {
+    @include container-margin;
     display: flex;
     flex-direction: column;
     flex: 3;
     border: solid #49474d;
     border-radius: 1rem;
-    width: var(--container-max-width);
     margin-top: 2rem;
 
     h1 {
@@ -66,7 +69,8 @@ body {
 
     .game-img-title {
       display: flex;
-      margin: 1rem 0rem;
+      margin: var(--cart-item-margin);
+      margin-left: 0.5rem;
       gap: 1rem;
       align-items: center;
     }
@@ -80,20 +84,24 @@ body {
     }
 
     img {
-      height: 3.2rem;
+      height: 2rem;
       border-radius: 40%;
     }
 
     .price {
-      margin: 1.9rem 0rem 2.6rem 0rem;
+      margin: var(--cart-item-margin);
+      margin-left: -0.6rem;
+      padding: 0rem 0.4rem 0rem 0.4rem;
+      border: 0.2rem solid transparent;
+      height: 1.98rem;
     }
 
     .item-count-container {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.7rem;
       margin: var(--cart-item-margin);
-      margin-left: -0.2rem;
+      margin-left: -0.7rem;
     }
 
     .add-item {
@@ -137,13 +145,13 @@ body {
   }
 
   #summary-container {
+    @include container-margin;
     display: flex;
     flex-direction: column;
     flex: 1;
     border: 0.2rem solid var(--border-color);
     border-radius: var(--container-border-radius);
-    width: var(--container-max-width);
-    margin-top: var(--margin-top);
+    margin-top: 2rem;
     padding: var(--container-padding);
 
     h1 {
@@ -166,7 +174,7 @@ body {
     #summary-vat,
     #summary-total {
       @include flex-space-between;
-      margin-bottom: var(--margin-bottom);
+      margin-bottom: 0.5rem;
     }
   }
 

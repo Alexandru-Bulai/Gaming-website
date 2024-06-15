@@ -25,7 +25,7 @@ export function displayCartItems () {
     const productElement = document.createElement('div')
     productElement.classList.add('game-img-title')
     productElement.innerHTML = `
-      <img src="${item.imgSrc}" alt="${item.name}" class="h-20 w-20 rounded-full">
+      <img src="${item.imgSrc}" alt="${item.name}">
       <div class="game-title">${item.name}</div>
     `
     productItemCart.appendChild(productElement)
