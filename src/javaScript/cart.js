@@ -1,11 +1,11 @@
 import '../main.min.css'
 import '../cart.scss'
 
-function getCartItems () {
+function getCartItems() {
   return JSON.parse(localStorage.getItem('cart')) || []
 }
 
-export function displayCartItems () {
+export function displayCartItems() {
   const cartItems = getCartItems()
   const productItemCart = document.getElementById('product-item-cart')
   const priceItemCart = document.getElementById('price-item-cart')
@@ -56,7 +56,7 @@ export function displayCartItems () {
   })
 }
 
-function displaySummaryValue () {
+function displaySummaryValue() {
   const summarySubtotal = document.getElementById('summary-subtotal')
   const summaryVat = document.getElementById('summary-vat')
   const summaryTotal = document.getElementById('summary-total')
@@ -91,20 +91,46 @@ function displaySummaryValue () {
   `
 }
 
-export function setMockCartData () {
+function updateQuantityColor() {
+  const addItems = document.querySelectorAll('.add-item')
+  const subtractItems = document.querySelectorAll('.remove-item')
+  const quantities = document.querySelectorAll('.quantity')
+
+  if (!addItems || !subtractItems || !quantities) {
+    return
+  }
+
+  addItems.forEach((addItem, index) => {
+    addItem.addEventListener('click', () => {
+      const quantity = quantities[index]
+      quantity.style.color = 'green'
+      quantity.textContent = parseInt(quantity.textContent) + 1
+    })
+  })
+
+  subtractItems.forEach((subtractItem, index) => {
+    subtractItem.addEventListener('click', () => {
+      const quantity = quantities[index]
+      quantity.style.color = 'red'
+      quantity.textContent = Math.max(0, parseInt(quantity.textContent) - 1)
+    })
+  })
+}
+
+export function setMockCartData() {
   const mockCartData = [
     {
       name: 'Game 1',
       price: '$19.99',
       imgSrc: '/assets/mock/game1.jpg',
-      quantity: 1
+      quantity: 1,
     },
     {
       name: 'Game 2',
       price: '$29.99',
       imgSrc: '/assets/mock/game2.jpg',
-      quantity: 2
-    }
+      quantity: 2,
+    },
   ]
   localStorage.setItem('cart', JSON.stringify(mockCartData))
 }
@@ -112,4 +138,5 @@ export function setMockCartData () {
 document.addEventListener('DOMContentLoaded', () => {
   displayCartItems()
   displaySummaryValue()
+  updateQuantityColor()
 })
