@@ -25,7 +25,7 @@ export function displayCartItems () {
     const productElement = document.createElement('div')
     productElement.classList.add('game-img-title')
     productElement.innerHTML = `
-      <img src="${item.imgSrc}" alt="${item.name}" class="h-20 w-20 rounded-full">
+      <img src="${item.imgSrc}" alt="${item.name}">
       <div class="game-title">${item.name}</div>
     `
     productItemCart.appendChild(productElement)
@@ -50,7 +50,7 @@ export function displayCartItems () {
     const subtotal = priceNumber * item.quantity
     subtotalElement.innerHTML = `
       <div class="subtotal">$${subtotal.toFixed(2)}</div>
-      <div class="delete-item">X</div>
+      <button class="delete-item">X</button>
     `
     subtotalItemCart.appendChild(subtotalElement)
   })
