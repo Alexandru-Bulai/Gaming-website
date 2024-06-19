@@ -5,6 +5,10 @@ function getCartItems () {
   return JSON.parse(localStorage.getItem('cart')) || []
 }
 
+function setCartItems (cartItems) {
+  localStorage.setItem('cart', JSON.stringify(cartItems))
+}
+
 export function displayCartItems () {
   const cartItems = getCartItems()
   const productItemCart = document.getElementById('product-item-cart')
@@ -21,7 +25,18 @@ export function displayCartItems () {
     return
   }
 
-  cartItems.forEach((item) => {
+  productItemCart
+    .querySelectorAll('.game-img-title')
+    .forEach((el) => el.remove())
+  priceItemCart.querySelectorAll('.price').forEach((el) => el.remove())
+  quantityItemCart
+    .querySelectorAll('.item-count-container')
+    .forEach((el) => el.remove())
+  subtotalItemCart
+    .querySelectorAll('.subtotal-count')
+    .forEach((el) => el.remove())
+
+  cartItems.forEach((item, index) => {
     const productElement = document.createElement('div')
     productElement.classList.add('game-img-title')
     productElement.innerHTML = `
@@ -38,9 +53,9 @@ export function displayCartItems () {
     const quantityElement = document.createElement('div')
     quantityElement.classList.add('item-count-container')
     quantityElement.innerHTML = `
-      <button class="remove-item">-</button>
+      <button class="remove-item" data-index="${index}">-</button>
       <div class="quantity">${item.quantity}</div>
-      <button class="add-item">+</button>
+      <button class="add-item" data-index="${index}">+</button>
     `
     quantityItemCart.appendChild(quantityElement)
 
@@ -49,25 +64,27 @@ export function displayCartItems () {
     const priceNumber = parseFloat(item.price.replace(/[^0-9.-]+/g, ''))
     const subtotal = priceNumber * item.quantity
     subtotalElement.innerHTML = `
-      <div class="subtotal">$${subtotal.toFixed(2)}</div>
-      <button class="delete-item">X</button>
+      <div class="subtotal" data-index="${index}">$${subtotal.toFixed(2)}</div>
+      <button class="delete-item" data-index="${index}">X</button>
     `
     subtotalItemCart.appendChild(subtotalElement)
   })
+
+  updateQuantityColor()
 }
 
 function displaySummaryValue () {
   const summarySubtotal = document.getElementById('summary-subtotal')
   const summaryVat = document.getElementById('summary-vat')
   const summaryTotal = document.getElementById('summary-total')
-  const cartItemSubtotals = document.querySelectorAll('.subtotal')
+  const cartItems = getCartItems()
 
   let subtotal = 0
 
-  cartItemSubtotals.forEach((priceElement) => {
-    const price = parseFloat(priceElement.textContent.replace(/[^0-9.-]+/g, ''))
-    if (!isNaN(price)) {
-      subtotal += price
+  cartItems.forEach((item) => {
+    const priceNumber = parseFloat(item.price.replace(/[^0-9.-]+/g, ''))
+    if (!isNaN(priceNumber)) {
+      subtotal += priceNumber * item.quantity
     }
   })
 
@@ -101,24 +118,62 @@ function updateQuantityColor () {
     return
   }
 
-  addItems.forEach((addItem, index) => {
+  addItems.forEach((addItem) => {
     addItem.addEventListener('click', () => {
-      const quantity = quantities[index]
-      quantity.style.color = 'green'
-      quantity.textContent = parseInt(quantity.textContent) + 1
+      const index = addItem.dataset.index
+      const cartItems = getCartItems()
+      cartItems[index].quantity += 1
+      setCartItems(cartItems)
+      quantities[index].textContent = cartItems[index].quantity
+      quantities[index].style.color = 'green'
+
+      const priceNumber = parseFloat(
+        cartItems[index].price.replace(/[^0-9.-]+/g, '')
+      )
+      const newSubtotal = priceNumber * cartItems[index].quantity
+      const subtotalElement = document.querySelector(
+        `.subtotal[data-index="${index}"]`
+      )
+      subtotalElement.textContent = `$${newSubtotal.toFixed(2)}`
+
       updateButton.removeAttribute('disabled')
+      updateButton.classList.remove('text-muted')
     })
   })
 
-  subtractItems.forEach((subtractItem, index) => {
+  subtractItems.forEach((subtractItem) => {
     subtractItem.addEventListener('click', () => {
-      const quantity = quantities[index]
-      quantity.style.color = 'red'
-      quantity.textContent = Math.max(0, parseInt(quantity.textContent) - 1)
+      const index = subtractItem.dataset.index
+      const cartItems = getCartItems()
+      cartItems[index].quantity = Math.max(0, cartItems[index].quantity - 1)
+      setCartItems(cartItems)
+      quantities[index].textContent = cartItems[index].quantity
+      quantities[index].style.color = 'red'
+
+      const priceNumber = parseFloat(
+        cartItems[index].price.replace(/[^0-9.-]+/g, '')
+      )
+      const newSubtotal = priceNumber * cartItems[index].quantity
+      const subtotalElement = document.querySelector(
+        `.subtotal[data-index="${index}"]`
+      )
+      subtotalElement.textContent = `$${newSubtotal.toFixed(2)}`
+
       updateButton.removeAttribute('disabled')
+      updateButton.classList.remove('text-muted')
     })
   })
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  displayCartItems()
+  displaySummaryValue()
+
+  const updateButton = document.querySelector('.update-btn')
+  updateButton.addEventListener('click', () => {
+    displaySummaryValue()
+  })
+})
 
 export function setMockCartData () {
   const mockCartData = [
@@ -137,9 +192,3 @@ export function setMockCartData () {
   ]
   localStorage.setItem('cart', JSON.stringify(mockCartData))
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  displayCartItems()
-  displaySummaryValue()
-  updateQuantityColor()
-})
