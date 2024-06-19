@@ -91,6 +91,35 @@ function displaySummaryValue () {
   `
 }
 
+function updateQuantityColor () {
+  const addItems = document.querySelectorAll('.add-item')
+  const subtractItems = document.querySelectorAll('.remove-item')
+  const quantities = document.querySelectorAll('.quantity')
+  const updateButton = document.querySelector('.update-btn')
+
+  if (!addItems || !subtractItems || !quantities) {
+    return
+  }
+
+  addItems.forEach((addItem, index) => {
+    addItem.addEventListener('click', () => {
+      const quantity = quantities[index]
+      quantity.style.color = 'green'
+      quantity.textContent = parseInt(quantity.textContent) + 1
+      updateButton.removeAttribute('disabled')
+    })
+  })
+
+  subtractItems.forEach((subtractItem, index) => {
+    subtractItem.addEventListener('click', () => {
+      const quantity = quantities[index]
+      quantity.style.color = 'red'
+      quantity.textContent = Math.max(0, parseInt(quantity.textContent) - 1)
+      updateButton.removeAttribute('disabled')
+    })
+  })
+}
+
 export function setMockCartData () {
   const mockCartData = [
     {
@@ -112,4 +141,5 @@ export function setMockCartData () {
 document.addEventListener('DOMContentLoaded', () => {
   displayCartItems()
   displaySummaryValue()
+  updateQuantityColor()
 })
