@@ -165,9 +165,25 @@ function updateQuantityColor () {
   })
 }
 
+function resetAfterUpdate () {
+  const updateButton = document.querySelector('.update-btn')
+  const quantities = document.querySelectorAll('.quantity')
+
+  updateButton.addEventListener('click', () => {
+    quantities.forEach((quantity) => {
+      if (quantity.style.color !== '#a4a4a5') {
+        quantity.style.color = '#a4a4a5'
+      }
+    })
+
+    updateButton.setAttribute('disabled', '')
+  })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   displayCartItems()
   displaySummaryValue()
+  resetAfterUpdate()
 
   const updateButton = document.querySelector('.update-btn')
   updateButton.addEventListener('click', () => {
