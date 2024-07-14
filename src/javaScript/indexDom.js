@@ -196,6 +196,47 @@ function updateCartCount (cartCountElement, count) {
 
 const gameCounts = {}
 
+function addCountCart () {
+  let totalCount = 0
+  const cartButtons = document.querySelectorAll('.add-to-cart')
+  const cartContainer = document.querySelector('#game-items-container')
+  const cartCountElement = document.querySelector('#cart-count')
+
+  cartButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const gameContainer = button.closest('.game-container')
+      if (!gameContainer) {
+        return
+      }
+
+      const title = gameContainer.querySelector('[data-name]')?.innerText
+      const price = gameContainer.querySelector('[data-price]')?.innerText
+      const imgSrc = gameContainer.querySelector('[data-img]')?.src
+
+      if (title && price && imgSrc) {
+        const added = addGameToCart(cartContainer, title, price, imgSrc)
+        if (added) {
+          totalCount++
+          updateCartCount(cartCountElement, totalCount)
+        }
+      }
+    })
+  })
+}
+
+function generateCartItemHTML (item) {
+  return `
+    <div class="flex flex-1 justify-between text-center items-center gap-5 p-4 w-auto">
+      <img src="${item.imgSrc}" alt="Game cover" class="h-20 w-20 rounded-full">
+      <span><strong>${item.name}</strong></span>
+      <div class="flex justify-end gap-5">
+        <span>${item.price}</span>
+        <span class="game-count dark-button text-center w-6 h-6 ring-1">${item.quantity}</span>
+      </div>
+    </div>
+  `
+}
+
 export function addGameToCart (cartContainer, title, price, imgSrc) {
   if (!cartContainer) return false
 
@@ -235,16 +276,12 @@ export function addGameToCart (cartContainer, title, price, imgSrc) {
     gameCartElement.classList.add('game-item')
     gameCartElement.dataset.title = title
 
-    gameCartElement.innerHTML = `
-      <div class="flex flex-1 justify-between text-center items-center gap-5 p-4 w-auto"> 
-        <img src="${imgSrc}" alt="Game cover" class="h-20 w-20 rounded-full"> 
-        <span><strong>${title}</strong></span>
-        <div class="flex justify-end gap-5">
-        <span>${price}</span>
-        <span class="game-count dark-button text-center w-6 h-6 ring-1">${gameCounts[title]}</span>
-        </div>
-      </div>
-    `
+    gameCartElement.innerHTML = generateCartItemHTML({
+      name: title,
+      price,
+      imgSrc,
+      quantity: gameCounts[title]
+    })
 
     cartContainer.appendChild(gameCartElement)
   }
@@ -252,34 +289,6 @@ export function addGameToCart (cartContainer, title, price, imgSrc) {
   displayCartItemsOnMainPage()
 
   return true
-}
-
-function addCountCart () {
-  let totalCount = 0
-  const cartButtons = document.querySelectorAll('.add-to-cart')
-  const cartContainer = document.querySelector('#game-items-container')
-  const cartCountElement = document.querySelector('#cart-count')
-
-  cartButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const gameContainer = button.closest('.game-container')
-      if (!gameContainer) {
-        return
-      }
-
-      const title = gameContainer.querySelector('[data-name]')?.innerText
-      const price = gameContainer.querySelector('[data-price]')?.innerText
-      const imgSrc = gameContainer.querySelector('[data-img]')?.src
-
-      if (title && price && imgSrc) {
-        const added = addGameToCart(cartContainer, title, price, imgSrc)
-        if (added) {
-          totalCount++
-          updateCartCount(cartCountElement, totalCount)
-        }
-      }
-    })
-  })
 }
 
 function displayCartItemsOnMainPage () {
@@ -297,16 +306,7 @@ function displayCartItemsOnMainPage () {
     gameCartElement.classList.add('game-item')
     gameCartElement.dataset.title = item.name
 
-    gameCartElement.innerHTML = `
-      <div class="flex flex-1 justify-between text-center items-center gap-5 p-4 w-auto">
-        <img src="${item.imgSrc}" alt="Game cover" class="h-20 w-20 rounded-full">
-        <span><strong>${item.name}</strong></span>
-        <div class="flex justify-end gap-5">
-          <span>${item.price}</span>
-          <span class="game-count dark-button text-center w-6 h-6 ring-1">${item.quantity}</span>
-        </div>
-      </div>
-    `
+    gameCartElement.innerHTML = generateCartItemHTML(item)
 
     cartContainer.appendChild(gameCartElement)
   })
