@@ -91,6 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
       populateGamesHighlights(allGames, mainHighlightContainer)
       addCountCart()
     })
+
+  displayCartItemsOnMainPage()
 })
 
 function populateGamesContainer (payload, gamesContainer) {
@@ -247,6 +249,8 @@ export function addGameToCart (cartContainer, title, price, imgSrc) {
     cartContainer.appendChild(gameCartElement)
   }
 
+  displayCartItemsOnMainPage()
+
   return true
 }
 
@@ -276,4 +280,36 @@ function addCountCart () {
       }
     })
   })
+}
+
+function displayCartItemsOnMainPage () {
+  const cartContainer = document.querySelector('#game-items-container')
+  const cartCountElement = document.querySelector('#cart-count')
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || []
+
+  cartContainer.innerHTML = ''
+  let totalCount = 0
+
+  cartItems.forEach((item) => {
+    totalCount += item.quantity
+
+    const gameCartElement = document.createElement('div')
+    gameCartElement.classList.add('game-item')
+    gameCartElement.dataset.title = item.name
+
+    gameCartElement.innerHTML = `
+      <div class="flex flex-1 justify-between text-center items-center gap-5 p-4 w-auto">
+        <img src="${item.imgSrc}" alt="Game cover" class="h-20 w-20 rounded-full">
+        <span><strong>${item.name}</strong></span>
+        <div class="flex justify-end gap-5">
+          <span>${item.price}</span>
+          <span class="game-count dark-button text-center w-6 h-6 ring-1">${item.quantity}</span>
+        </div>
+      </div>
+    `
+
+    cartContainer.appendChild(gameCartElement)
+  })
+
+  updateCartCount(cartCountElement, totalCount)
 }
