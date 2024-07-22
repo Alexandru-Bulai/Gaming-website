@@ -68,6 +68,9 @@ export function displayCartItems () {
       <button class="delete-item" data-index="${index}">X</button>
     `
     subtotalItemCart.appendChild(subtotalElement)
+
+    const deleteButton = subtotalElement.querySelector('.delete-item')
+    deleteButton.addEventListener('click', () => removeItem(index))
   })
 
   updateQuantityColor()
@@ -163,6 +166,16 @@ function updateQuantityColor () {
       updateButton.classList.remove('text-muted')
     })
   })
+}
+
+function removeItem (index) {
+  const cartItems = getCartItems()
+
+  cartItems.splice(index, 1)
+
+  setCartItems(cartItems)
+
+  displayCartItems()
 }
 
 function resetAfterUpdate () {
