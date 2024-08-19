@@ -1,31 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cart</title>
 </head>
 
 <body>
   <div id="main-container">
     <div id="item-container">
-      <h1>Shopping cart</h1>
+      <div id="title-btn-container">
+        <button id="home-btn">
+          <a href="index.html"><img src="/assets/home-page/svgs/home-icon-silhouette-svgrepo-com.svg"
+              alt="Home icon" /></a>
+        </button>
+        <h1>Shopping cart</h1>
+      </div>
 
       <div class="shopping-cart-line-start"></div>
 
-
-      <div id="cart-item-container">
-        <section id="product-item-cart">Product</section>
-        <section id="price-item-cart">Price</section>
-        <section id="quantity-item-cart">Quantity</section>
-        <section id="subtotal-item-cart">Subtotal</section>
-      </div>
+      <nav id="cart-item-container">
+        <di id="product-item-cart">Product</di>
+        <div id="price-item-cart">Price</div>
+        <div id="quantity-item-cart">Quantity</div>
+        <div id="subtotal-item-cart">Subtotal</div>
+      </nav>
 
       <div id="shopping-cart-line-end"></div>
 
       <div class="update-cart-btn">
-        <button class="btn btn-small update-btn text-muted" disabled><strong>Update</strong></button>
+        <button class="btn btn-small update-btn text-muted" disabled>
+          <strong>Update</strong>
+        </button>
       </div>
     </div>
 
@@ -36,16 +43,11 @@
       <div><strong>Estimate Shipping and Tax:</strong></div>
       <div class="summary-break-line"></div>
 
-      <section id="summary-subtotal">
+      <section id="summary-subtotal"></section>
 
-      </section>
+      <section id="summary-vat"></section>
 
-      <section id="summary-vat">
-      </section>
-
-      <section id="summary-total">
-
-      </section>
+      <section id="summary-total"></section>
 
       <div class="summary-break-line"></div>
 
