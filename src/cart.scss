@@ -109,6 +109,12 @@ body {
       margin-left: 0.5rem;
       gap: 1rem;
       align-items: center;
+
+      img {
+        height: 2rem;
+        border-radius: 40%;
+        width: 2.3rem;
+      }
     }
 
     .game-title {
@@ -117,11 +123,6 @@ body {
       @media (min-width: 1000px) {
         display: block;
       }
-    }
-
-    img {
-      height: 2rem;
-      border-radius: 40%;
     }
 
     .price {
